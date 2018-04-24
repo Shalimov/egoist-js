@@ -1,6 +1,6 @@
 import should from 'should'
 
-import { isString, isNotEmpty } from '../../lib/validators/string'
+import { isString, isNotEmpty, match } from '../../lib/validators/string'
 import ERROR_KEYS from '../../lib/defaults/keys'
 
 describe('Spec String validators', () => {
@@ -24,5 +24,17 @@ describe('Spec String validators', () => {
 		should(isNotEmpty(undefined)).be.Null()
 		should(isNotEmpty(null)).be.Null()
 		should(isNotEmpty('Test')).be.Null()
+	})
+
+	it('should return a tuple with key and regex pattern if value has an error, otherwise return null', () => {
+		const pattern = /^[a-zA-Z\s]+$/
+		const username = match(pattern)
+
+		should(username('James Budron')).be.Null()
+		should(username('James')).be.Null()
+		should(username(undefined)).be.Null()
+		should(username(null)).be.Null()
+
+		username('Test 123').should.be.eql([ERROR_KEYS.STRING.MATCH, [pattern]])
 	})
 })
