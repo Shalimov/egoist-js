@@ -19,7 +19,7 @@ describe('Spec Creators', () => {
 
   it('should return error description if error exists, otherwise null', () => {
     const specFn = spec.flow(isNotEmpty, required)
-    
+
     specFn(null).should.be.matchEach((it) => {
       it.result.should.be.oneOf([[ERROR_KEYS.STRING.EMPTY], [ERROR_KEYS.ANY.REQUIRED]])
       should(it.value).be.Null()
@@ -121,5 +121,45 @@ describe('Spec Creators', () => {
     })
 
     specOfFn({}, { untilFail: true }).length.should.be.eql(1)
+  })
+
+  describe('Spec for Collections aka Arrays', () => {
+    it('should be able to generate spec for collection values', () => {
+      const nonEmptyListSpec = spec.compose(
+        spec.of([
+          spec.flow(isNotEmpty, required),
+        ]),
+        spec.flow(required),
+      )
+
+      should(nonEmptyListSpec([null, undefined, ''])).matchEach(it => {
+        it.result.should.be.oneOf([[ERROR_KEYS.ANY.REQUIRED], [ERROR_KEYS.STRING.EMPTY]])
+      })
+
+      should(nonEmptyListSpec(null)).matchEach(it => {
+        it.result.should.be.oneOf([[ERROR_KEYS.ANY.REQUIRED]])
+      })
+    })
+  })
+
+  describe('Spec for Lazy #specs support', () => {
+    it('should suppor lazy link in case of self nesting objects', () => {
+      const userModelSpec = spec.compose(
+        spec.of({
+          username: spec.flow(isNotEmpty, required),
+          friends: spec.of([spec.lazy(() => userModelSpec)]),
+        }),
+        spec.flow(required)
+      )
+  
+      const result = userModelSpec({
+        username: 'John',
+        friends: [{ username: 'Hank' }, { username: null }],
+      })
+  
+      result.should.matchEach(it => {
+        it.result.should.be.eql([ERROR_KEYS.ANY.REQUIRED])
+      })
+    })
   })
 })

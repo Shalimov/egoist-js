@@ -61,7 +61,6 @@ import {
 	spec,
 	validate,
 	isValid,
-	isInvalid
 } from 'ego'
 
 import { 
@@ -95,11 +94,8 @@ const userModelSpec = spec.of({
 		isNotEmpty,
 		required,
 	),
-	// it allows unlimited nesting and so on
-	bestFriend: spec.of({
-		username: usernameSpec,
-		age: spec.flow(isNumber, required),
-	}),
+	// it allows unlimited nesting and circular reference to spec
+	bestFriend: spec.lazy(() => userModelSpec),
 })
 
 
@@ -121,4 +117,31 @@ console.log(getModelErrors({ ... })) // it returns an array of errors or null if
 
 	lt(10) is one of validators check example above
 */
+```
+
+**Example of `spec#compose`:**
+```javascript
+
+import {
+	spec,
+} from 'ego'
+
+import {
+	allowedKeys,
+	hasKeys,
+} from 'ego/validators'
+
+const userModelSpec = spec.of({
+	username: spec.flow(required),
+	bestFriend: spec.lazy(() => userModelSpec),
+})
+
+const userModelFullSpec = spec.compose(
+	userModelSpec,
+	spec.flow(
+		hasKeys(['username', 'bestFriends']),
+		allowedKeys(['username', 'bestFriends']),
+		required
+	)
+)
 ```
