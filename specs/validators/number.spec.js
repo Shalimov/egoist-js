@@ -23,8 +23,8 @@ describe('Spec Number validators', () => {
 		should(isNumber(undefined)).be.Null()
 		should(lowerThen10(9)).be.Null()
 
-		lowerThen10(10).should.be.eql([ERROR_KEYS.NUMBER.LT, [10]])
-		lowerThen10(15).should.be.eql([ERROR_KEYS.NUMBER.LT, [10]])
+		lowerThen10(10).should.be.eql([ERROR_KEYS.NUMBER.LT, 10])
+		lowerThen10(15).should.be.eql([ERROR_KEYS.NUMBER.LT, 10])
 	})
 
 
@@ -35,8 +35,8 @@ describe('Spec Number validators', () => {
 		should(isNumber(undefined)).be.Null()
 		should(greaterThen10(15)).be.Null()
 
-		greaterThen10(10).should.be.eql([ERROR_KEYS.NUMBER.GT, [10]])
-		greaterThen10(5).should.be.eql([ERROR_KEYS.NUMBER.GT, [10]])
+		greaterThen10(10).should.be.eql([ERROR_KEYS.NUMBER.GT, 10])
+		greaterThen10(5).should.be.eql([ERROR_KEYS.NUMBER.GT, 10])
 	})
 
 
@@ -48,8 +48,8 @@ describe('Spec Number validators', () => {
 		should(lowerEqual10(9)).be.Null()
 		should(lowerEqual10(10)).be.Null()
 
-		lowerEqual10(11).should.be.eql([ERROR_KEYS.NUMBER.LTE, [10]])
-		lowerEqual10(15).should.be.eql([ERROR_KEYS.NUMBER.LTE, [10]])
+		lowerEqual10(11).should.be.eql([ERROR_KEYS.NUMBER.LTE, 10])
+		lowerEqual10(15).should.be.eql([ERROR_KEYS.NUMBER.LTE, 10])
 	})
 
 
@@ -61,7 +61,7 @@ describe('Spec Number validators', () => {
 		should(greaterEqual10(10)).be.Null()
 		should(greaterEqual10(15)).be.Null()
 
-		greaterEqual10(9).should.be.eql([ERROR_KEYS.NUMBER.GTE, [10]])
-		greaterEqual10(5).should.be.eql([ERROR_KEYS.NUMBER.GTE, [10]])
+		greaterEqual10(9).should.be.eql([ERROR_KEYS.NUMBER.GTE, 10])
+		greaterEqual10(5).should.be.eql([ERROR_KEYS.NUMBER.GTE, 10])
 	})
 })

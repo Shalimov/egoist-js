@@ -35,6 +35,6 @@ describe('Spec String validators', () => {
 		should(username(undefined)).be.Null()
 		should(username(null)).be.Null()
 
-		username('Test 123').should.be.eql([ERROR_KEYS.STRING.MATCH, [pattern]])
+		username('Test 123').should.be.eql([ERROR_KEYS.STRING.MATCH, pattern])
 	})
 })

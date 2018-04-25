@@ -1,35 +1,32 @@
 /* eslint-disable no-unused-expressions */
 import should from 'should'
 
-import spec from '../lib/spec'
+import { required } from '../lib/validators/any'
+import { isNotEmpty } from '../lib/validators/string'
+import ERROR_KEYS from '../lib/defaults/keys'
 
-const required = value => ((value === null || value === undefined) ? 'required' : null)
-const notEmpty = value => (
-  value === '' || value === null || value === undefined ?
-    'not.empty' :
-    null
-)
+import spec from '../lib/spec'
 
 describe('Spec Creators', () => {
   it('should create a composed function in order to validate value', () => {
-    spec.flow(notEmpty, require).should.be.a.Function
+    spec.flow(isNotEmpty, require).should.be.a.Function
 
     spec.of({
-      key1: spec.flow(notEmpty, required),
-      key2: spec.flow(notEmpty, required),
+      key1: spec.flow(isNotEmpty, required),
+      key2: spec.flow(isNotEmpty, required),
     }).should.be.a.Function
   })
 
   it('should return error description if error exists, otherwise null', () => {
-    const specFn = spec.flow(notEmpty, required)
-
+    const specFn = spec.flow(isNotEmpty, required)
+    
     specFn(null).should.be.matchEach((it) => {
-      it.result.should.be.oneOf(['not.empty', 'required'])
+      it.result.should.be.oneOf([[ERROR_KEYS.STRING.EMPTY], [ERROR_KEYS.ANY.REQUIRED]])
       should(it.value).be.Null()
     })
 
     specFn('').should.be.matchEach((it) => {
-      it.result.should.be.eql('not.empty')
+      it.result.should.be.eql([ERROR_KEYS.STRING.EMPTY])
       it.value.should.be.eql('')
     })
 
@@ -39,9 +36,9 @@ describe('Spec Creators', () => {
   it('should return error description if error exists for complex shapes, otherwise null', () => {
     const specFn = spec.of({
       n: spec.flow(required),
-      s: spec.flow(notEmpty, required),
+      s: spec.flow(isNotEmpty, required),
       nest: spec.of({
-        ns: spec.flow(notEmpty, required),
+        ns: spec.flow(isNotEmpty, required),
       }),
     })
 
@@ -60,7 +57,7 @@ describe('Spec Creators', () => {
         ns: null,
       },
     }).should.matchEach((it) => {
-      it.result.should.be.oneOf(['not.empty', 'required'])
+      it.result.should.be.oneOf([[ERROR_KEYS.STRING.EMPTY], [ERROR_KEYS.ANY.REQUIRED]])
       should(it.value).be.Null()
       it.context.key.should.be.eql('ns')
     })
@@ -72,7 +69,7 @@ describe('Spec Creators', () => {
         ns: 'hello world',
       },
     }).should.matchEach((it) => {
-      it.result.should.eql('not.empty')
+      it.result.should.eql([ERROR_KEYS.STRING.EMPTY])
       it.value.should.be.eql('')
       it.context.key.should.be.eql('s')
     })
@@ -97,7 +94,7 @@ describe('Spec Creators', () => {
       nest0: spec.of({
         nest1: spec.of({
           nest2: spec.of({
-            level: spec.flow(notEmpty, required),
+            level: spec.flow(isNotEmpty, required),
           }),
         }),
       }),
@@ -115,11 +112,11 @@ describe('Spec Creators', () => {
   })
 
   it('should return only one error if option has [untilFail] flag is true', () => {
-    const specFn = spec.flow(notEmpty, required)
+    const specFn = spec.flow(isNotEmpty, required)
     specFn(null, { untilFail: true }).length.should.be.eql(1)
 
     const specOfFn = spec.of({
-      t1: spec.flow(notEmpty, required),
+      t1: spec.flow(isNotEmpty, required),
       t2: spec.flow(required),
     })
 

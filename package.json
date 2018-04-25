@@ -6,7 +6,7 @@
   "author": "Shalimov Igor",
   "license": "MIT",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --opts ./mocha.opts ./specs/**/*.spec.js"
+    "test": "./node_modules/mocha/bin/mocha --opts ./mocha.opts ./specs/**/*.spec.js ./specs/*.spec.js"
   },
   "devDependencies": {
     "babel-env": "^2.4.1",
