@@ -134,12 +134,16 @@ import {
 const userModelSpec = spec.of({
 	username: spec.flow(required),
 	bestFriend: spec.lazy(() => userModelSpec),
+	address: spec.of({
+		city: spec.flow(required),
+		country: spec.flow(required),
+	})
 })
 
 const userModelFullSpec = spec.compose(
 	userModelSpec,
 	spec.flow(
-		hasKeys(['username', 'bestFriends']),
+		expectKeys(['username', 'bestFriends']),
 		allowedKeys(['username', 'bestFriends']),
 		required
 	)
