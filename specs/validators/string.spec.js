@@ -1,6 +1,6 @@
 import should from 'should'
 
-import { isString, isNotEmpty, match } from '../../lib/validators/string'
+import { isString, isNotEmpty, isEmail, match } from '../../lib/validators/string'
 import ERROR_KEYS from '../../lib/defaults/keys'
 
 describe('Spec String validators', () => {
@@ -36,5 +36,18 @@ describe('Spec String validators', () => {
 		should(username(null)).be.Null()
 
 		username('Test 123').should.be.eql([ERROR_KEYS.STRING.MATCH, pattern])
+	})
+
+	it('should return a tuple with key if value is not an email addres, otherwise return null', () => {
+
+		should(isEmail('hello@world.com')).be.Null()
+		should(isEmail('he@wo.by')).be.Null()
+		should(isEmail(undefined)).be.Null()
+		should(isEmail(null)).be.Null()
+
+		isEmail('shalimich@mail').should.be.eql([ERROR_KEYS.STRING.EMAIL])
+		isEmail('shalimich@mail.').should.be.eql([ERROR_KEYS.STRING.EMAIL])
+		isEmail('@mail.com').should.be.eql([ERROR_KEYS.STRING.EMAIL])
+		isEmail('www.com.com').should.be.eql([ERROR_KEYS.STRING.EMAIL])
 	})
 })
