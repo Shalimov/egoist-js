@@ -2,7 +2,7 @@ import should from 'should'
 
 import { freeze, toValidator, toValidatorWithArgs } from '../lib/utils'
 
-describe('Spec Utils', () => {
+describe('Utils Module Spec', () => {
 	it('should freeze node and subnodes of object', () => {
 		const test = {
 			a: 1,

@@ -3,7 +3,7 @@ import should from 'should'
 import { lt, lte, gt, gte, inRange, isNumber } from '../../lib/validators/number'
 import ERROR_KEYS from '../../lib/defaults/keys'
 
-describe('Spec Number validators', () => {
+describe('Validators Module Number Spec', () => {
 	it('should return one item tuple with key if value is not a number, otherwise return null', () => {
 		isNumber('').should.be.eql([ERROR_KEYS.NUMBER.TYPE])
 		isNumber({}).should.be.eql([ERROR_KEYS.NUMBER.TYPE])

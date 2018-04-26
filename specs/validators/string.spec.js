@@ -3,7 +3,7 @@ import should from 'should'
 import { isString, isNotEmpty, isEmail, match } from '../../lib/validators/string'
 import ERROR_KEYS from '../../lib/defaults/keys'
 
-describe('Spec String validators', () => {
+describe('Validators Module String Spec', () => {
 	it('should return one item tuple with key if value is not a string, otherwise return null', () => {
 		isString(NaN).should.be.eql([ERROR_KEYS.STRING.TYPE])
 		isString(0).should.be.eql([ERROR_KEYS.STRING.TYPE])

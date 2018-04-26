@@ -7,7 +7,7 @@ import ERROR_KEYS from '../lib/defaults/keys'
 
 import spec from '../lib/spec'
 
-describe('Spec Creators', () => {
+describe('$pec Module Spec', () => {
   it('should create a composed function in order to validate value', () => {
     spec.flow(isNotEmpty, require).should.be.a.Function
 

@@ -3,7 +3,7 @@ import should from 'should'
 import { isShape, allowedKeys, expectKeys, forbiddenKeys } from '../../lib/validators/shape'
 import ERROR_KEYS from '../../lib/defaults/keys'
 
-describe('Spec Shape validators', () => {
+describe('Validators Module Shape Spec', () => {
 	it('should return one item tuple with key if value is not a shape, otherwise return null', () => {
 		isShape(NaN).should.be.eql([ERROR_KEYS.SHAPE.TYPE])
 		isShape(0).should.be.eql([ERROR_KEYS.SHAPE.TYPE])
