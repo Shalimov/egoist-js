@@ -6,7 +6,10 @@ import {
 	isValid,
 	isInvalid,
 	validate,
+	validateWithOpts,
 	validateAll,
+	validateAllWithOpts,
+	ERROR_KEYS,
 } from '../lib'
 
 describe('Validate Module Spec', () => {
@@ -73,7 +76,6 @@ describe('Validate Module Spec', () => {
 			const validateAdultModel = validate(adultUserModelSpec)
 
 			should(validateAdultModel(createUserModel('Mark', 18, 'New-York'))).be.Null()
-
 			validateAdultModel(undefined).should.matchEach(it => {
 				it.message.should.be.eql('value is required')
 				should(it.value).be.Undefined()
@@ -97,6 +99,18 @@ describe('Validate Module Spec', () => {
 			validateAdultModel(createUserModel('Mark', 18, null, false)).should.matchEach(it => {
 				it.message.should.be.eql('city is required')
 				should(it.value).be.Undefined()
+			})
+		})
+
+		it('should use custom error messages if it is defined for #withOpts, otherwise default messages', () => {
+			const adultUserValidate = validateWithOpts(adultUserModelSpec, {
+				customMessages: {
+					[ERROR_KEYS.ANY.REQUIRED]: () => 'field is mandatory',
+				},
+			})
+
+			adultUserValidate(createUserModel('Mark', null, null)).should.matchEach(it => {
+				it.message.should.be.eql('field is mandatory')
 			})
 		})
 	})
@@ -143,6 +157,18 @@ describe('Validate Module Spec', () => {
 				])
 
 				should(it.value).be.oneOf([null, undefined, 17])
+			})
+		})
+
+		it('should use custom error messages if it is defined for #allWithOpts, otherwise default messages', () => {
+			const adultUserValidate = validateAllWithOpts(adultUserModelSpec, {
+				customMessages: {
+					[ERROR_KEYS.ANY.REQUIRED]: () => 'field is mandatory',
+				},
+			})
+
+			adultUserValidate(createUserModel('Mark', null, null)).should.matchEach(it => {
+				it.message.should.be.eql('field is mandatory')
 			})
 		})
 	})
