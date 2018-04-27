@@ -34,7 +34,7 @@ describe('Validate Module Spec', () => {
 			),
 			age: spec.flow(
 				validators.number.isNumber,
-				validators.number.gte(18),
+				validators.number.ge(18),
 				validators.any.required,
 			),
 			address: spec.of({
