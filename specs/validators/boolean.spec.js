@@ -4,7 +4,7 @@ import { isBoolean } from '../../lib/validators/boolean'
 import ERROR_KEYS from '../../lib/defaults/keys'
 
 describe('Validators Module Boolean Spec', () => {
-	it('should return one item tuple with key if value is not a boolean, otherwise return null', () => {
+	it('should return one item tuple with key if value is not a boolean, otherwise null', () => {
 		isBoolean(NaN).should.be.eql([ERROR_KEYS.BOOLEAN.TYPE])
 		isBoolean(0).should.be.eql([ERROR_KEYS.BOOLEAN.TYPE])
 		isBoolean({}).should.be.eql([ERROR_KEYS.BOOLEAN.TYPE])
@@ -16,6 +16,5 @@ describe('Validators Module Boolean Spec', () => {
 		should(isBoolean(true)).be.Null()
 		should(isBoolean(undefined)).be.Null()
 		should(isBoolean(null)).be.Null()
-
 	})
 })

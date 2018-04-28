@@ -4,7 +4,7 @@ import { lt, le, gt, ge, inRange, isNumber } from '../../lib/validators/number'
 import ERROR_KEYS from '../../lib/defaults/keys'
 
 describe('Validators Module Number Spec', () => {
-	it('should return one item tuple with key if value is not a number, otherwise return null', () => {
+	it('should return one item tuple with key if value is not a number, otherwise null', () => {
 		isNumber('').should.be.eql([ERROR_KEYS.NUMBER.TYPE])
 		isNumber({}).should.be.eql([ERROR_KEYS.NUMBER.TYPE])
 		isNumber([]).should.be.eql([ERROR_KEYS.NUMBER.TYPE])
@@ -16,7 +16,7 @@ describe('Validators Module Number Spec', () => {
 		should(isNumber(0)).be.Null()
 	})
 
-	it('should return tuple with key and args if value greater then variable, otherwise return null', () => {
+	it('should return tuple with key and args if value greater then variable, otherwise null', () => {
 		const lowerThen10 = lt(10)
 
 		should(lowerThen10(null)).be.Null()
@@ -28,7 +28,7 @@ describe('Validators Module Number Spec', () => {
 	})
 
 
-	it('should return tuple with key and args if value less then variable, otherwise return null', () => {
+	it('should return tuple with key and args if value less then variable, otherwise null', () => {
 		const greaterThen10 = gt(10)
 
 		should(greaterThen10(null)).be.Null()
@@ -40,7 +40,7 @@ describe('Validators Module Number Spec', () => {
 	})
 
 
-	it('should return tuple with key and args if value strict greater then variable, otherwise return null', () => {
+	it('should return tuple with key and args if value strict greater then variable, otherwise null', () => {
 		const lowerEqual10 = le(10)
 
 		should(lowerEqual10(null)).be.Null()
@@ -53,7 +53,7 @@ describe('Validators Module Number Spec', () => {
 	})
 
 
-	it('should return tuple with key and args if value strict less then variable, otherwise return null', () => {
+	it('should return tuple with key and args if value strict less then variable, otherwise null', () => {
 		const greaterEqual10 = ge(10)
 
 		should(greaterEqual10(null)).be.Null()
@@ -65,7 +65,7 @@ describe('Validators Module Number Spec', () => {
 		greaterEqual10(5).should.be.eql([ERROR_KEYS.NUMBER.GE, 10])
 	})
 
-	it('should return tuple with key and args if value outside of range, otherwise return null', () => {
+	it('should return tuple with key and args if value outside of range, otherwise null', () => {
 		const inRange10to20 = inRange([10, 20])
 
 		should(inRange10to20(null)).be.Null()

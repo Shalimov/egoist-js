@@ -4,7 +4,7 @@ import { isShape, allowedKeys, expectKeys, forbiddenKeys } from '../../lib/valid
 import ERROR_KEYS from '../../lib/defaults/keys'
 
 describe('Validators Module Shape Spec', () => {
-	it('should return one item tuple with key if value is not a shape, otherwise return null', () => {
+	it('should return one item tuple with key if value is not a shape, otherwise null', () => {
 		isShape(NaN).should.be.eql([ERROR_KEYS.SHAPE.TYPE])
 		isShape(0).should.be.eql([ERROR_KEYS.SHAPE.TYPE])
 		isShape('').should.be.eql([ERROR_KEYS.SHAPE.TYPE])
@@ -16,7 +16,7 @@ describe('Validators Module Shape Spec', () => {
 		should(isShape(null)).be.Null()
 	})
 
-	it('should return tuple with key and allowed keys if value has forbidden keys, otherwise return null', () => {
+	it('should return tuple with key and allowed keys if value has forbidden keys, otherwise null', () => {
 		const allowedKeysArray = ['username', 'friends']
 		const shapeShouldHasOnly = allowedKeys(allowedKeysArray)
 
@@ -50,7 +50,7 @@ describe('Validators Module Shape Spec', () => {
 		}).should.be.eql([ERROR_KEYS.SHAPE.ALLOWED_KEYS, allowedKeysArray])
 	})
 
-	it('should return tuple with key and forbidden keys if value has forbidden keys, otherwise return null', () => {
+	it('should return tuple with key and forbidden keys if value has forbidden keys, otherwise null', () => {
 		const forbiddenKeysArray = ['username', 'friends']
 		const forbiddenKeysFn = forbiddenKeys(forbiddenKeysArray)
 
@@ -76,7 +76,7 @@ describe('Validators Module Shape Spec', () => {
 		}).should.be.eql([ERROR_KEYS.SHAPE.FORBIDDEN_KEYS, forbiddenKeysArray])
 	})
 
-	it('should return tuple with key and expected keys if value has other keys in, otherwise return null', () => {
+	it('should return tuple with key and expected keys if value has other keys in, otherwise null', () => {
 		const expectedKeysArray = ['username', 'friends']
 		const expectedKeysFn = expectKeys(expectedKeysArray)
 
