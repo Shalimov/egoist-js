@@ -1,6 +1,6 @@
 import should from 'should'
 
-import {
+import { 
 	spec,
 	validators,
 	isValid,

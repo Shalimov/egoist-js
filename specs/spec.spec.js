@@ -5,7 +5,7 @@ import { required } from '../lib/validators/any'
 import { isNotEmpty } from '../lib/validators/string'
 import ERROR_KEYS from '../lib/defaults/keys'
 
-import spec from '../lib/spec'
+import spec from '../lib/specification'
 
 describe('$pec Module Spec', () => {
   it('should create a composed function in order to validate value', () => {

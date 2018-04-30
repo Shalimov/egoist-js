@@ -2,26 +2,32 @@
   "name": "ego",
   "version": "0.1.0",
   "description": "Validation lib for FE/BE",
-  "main": "index.js",
+  "main": "./dist/dist.js",
   "author": "Shalimov Igor",
   "license": "MIT",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --opts ./mocha.opts ./specs/**/*.spec.js ./specs/*.spec.js"
+    "precommit": "yarn gulp && yarn build",
+    "test": "./node_modules/mocha/bin/mocha --opts ./mocha.opts ./specs/**/*.spec.js ./specs/*.spec.js",
+    "build": "gulp build"
   },
   "devDependencies": {
     "babel-env": "^2.4.1",
     "babel-eslint": "^8.2.3",
     "babel-register": "^6.26.0",
+    "babelify": "^8.0.0",
+    "browserify": "^16.2.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-mocha": "^5.0.0",
     "gulp": "^3.9.1",
-    "gulp-babel": "^7.0.1",
-    "gulp-concat": "^2.6.1",
     "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.0",
+    "husky": "^0.14.3",
     "mocha": "^5.1.1",
-    "should": "^13.2.1"
+    "should": "^13.2.1",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {
     "lodash": "^4.17.5"
