@@ -1,6 +1,6 @@
 {
   "name": "egoist-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Validation lib for FE/BE",
   "main": "./dist/dist.js",
   "author": "igor.shalimov ",
