@@ -1,10 +1,27 @@
 {
   "name": "ego",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Validation lib for FE/BE",
   "main": "./dist/dist.js",
   "author": "Shalimov Igor",
   "license": "MIT",
+  "keywords": [
+    "validation",
+    "validate",
+    "fp",
+    "functional",
+    "curry",
+    "lodash",
+    "ego",
+    "specifications",
+    "data validity",
+    "safety",
+    "integrity",
+    "valid",
+    "check",
+    "scrutiny",
+    "examine"
+  ],
   "scripts": {
     "gen:readme": "jsdoc",
     "gen:docs": "jsdoc -c ./jsdoc.config.js",
