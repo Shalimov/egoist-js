@@ -3,8 +3,17 @@
   "version": "1.0.1",
   "description": "Validation lib for FE/BE",
   "main": "./dist/dist.js",
-  "author": "igor.shalimov ",
   "license": "MIT",
+  "homepage": "https://github.com/miniArray/node-ego",
+  "author": {
+    "name": "Igor Shalimov",
+    "email": "work.igor.shalimov@gmail.com",
+    "url": "https://www.linkedin.com/in/jshero"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Shalimov/ego.git"
+  },
   "keywords": [
     "validation",
     "validate",
@@ -23,7 +32,6 @@
     "examine"
   ],
   "scripts": {
-    "gen:readme": "jsdoc",
     "gen:docs": "jsdoc -c ./jsdoc.config.js",
     "precommit": "yarn gulp && yarn build && git add .",
     "test": "./node_modules/mocha/bin/mocha --opts ./mocha.opts ./specs/**/*.spec.js ./specs/*.spec.js",

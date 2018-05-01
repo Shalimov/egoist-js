@@ -1,6 +1,8 @@
 # Validation Specs
-# Inspired by functional programming
-## To see the docs pls follow [Docs](https://shalimov.github.io/ego/module-ego.html)
+Inspired by functional programming
+***
+Docs in progress.
+However you can look at [Egoist-JS](https://shalimov.github.io/ego/module-ego.html) pages
 
 ## Get started
 
