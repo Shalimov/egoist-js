@@ -4,7 +4,7 @@
   "description": "Validation lib for FE/BE",
   "main": "./dist/dist.js",
   "license": "MIT",
-  "homepage": "https://github.com/miniArray/node-ego",
+  "homepage": "https://github.com/Shalimov/ego.git",
   "author": {
     "name": "Igor Shalimov",
     "email": "work.igor.shalimov@gmail.com",
