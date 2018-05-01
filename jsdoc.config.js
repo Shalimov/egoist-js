@@ -2,10 +2,7 @@ module.exports = {
 	source: {
 		include: ['./lib', 'README.md'],
 	},
-	plugins: [
-		'plugins/markdown',
-		'plugins/summarize',
-	],
+	plugins: ['plugins/markdown'],
 	opts: {
 		template: './node_modules/jsdoc-template',
 		encoding: 'utf8',
@@ -14,7 +11,6 @@ module.exports = {
 	},
 	templates: {
 		referenceTitle: 'Ego Validation Library',
-		disableSort: false,
 	},
 	tags: {
 		allowUnknownTags: true,

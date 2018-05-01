@@ -1,4 +1,5 @@
-# Validation library inspired by lodash/fp and functional programming in whole
+# Validation Specs
+# Inspired by functional programming
 ## To see the docs pls follow [Docs](https://shalimov.github.io/ego/module-ego.html)
 
 **Example of what we have:**

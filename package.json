@@ -29,6 +29,7 @@
     "husky": "^0.14.3",
     "jsdoc": "^3.5.5",
     "jsdoc-template": "https://github.com/braintree/jsdoc-template.git",
+    "minami": "^1.2.3",
     "mocha": "^5.1.1",
     "should": "^13.2.1",
     "vinyl-buffer": "^1.0.1",
