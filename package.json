@@ -6,6 +6,8 @@
   "author": "Shalimov Igor",
   "license": "MIT",
   "scripts": {
+    "gen:readme": "jsdoc",
+    "gen:docs": "jsdoc -r ./lib/ -t ./node_modules/docdash",
     "precommit": "yarn gulp && yarn build",
     "test": "./node_modules/mocha/bin/mocha --opts ./mocha.opts ./specs/**/*.spec.js ./specs/*.spec.js",
     "build": "gulp build"
@@ -16,6 +18,7 @@
     "babel-register": "^6.26.0",
     "babelify": "^8.0.0",
     "browserify": "^16.2.0",
+    "docdash": "^0.4.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.11.0",
@@ -24,6 +27,7 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.0",
     "husky": "^0.14.3",
+    "jsdoc": "^3.5.5",
     "mocha": "^5.1.1",
     "should": "^13.2.1",
     "vinyl-buffer": "^1.0.1",
