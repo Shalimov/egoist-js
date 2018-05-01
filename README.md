@@ -3,6 +3,7 @@
 
 **Example of what we have:**
 ```javascript
+
 import { 
   spec,
   validate,
@@ -32,16 +33,14 @@ const nameSpec = spec.flow(
   any.required,
 )
 
-const usernameSpec = spec.compose(
-  spec.of({
-    first: nameSpec,
-    last: nameSpec,
-  }),
-  spec.flow(any.requied)
-)
-
 const adultPersonModelSpec = spec.of({
-  username: usernameSpec,
+  username: spec.compose(
+    spec.of({
+      first: nameSpec,
+      last: nameSpec,
+    }),
+    spec.flow(any.requied)
+  ),
 
   age: spec.flow(
     number.isNumber,
