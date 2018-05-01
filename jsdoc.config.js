@@ -1,6 +1,6 @@
 module.exports = {
 	source: {
-		include: ['./lib', 'README.md'],
+		include: ['./lib', 'README.md', 'package.json'],
 	},
 	plugins: ['plugins/markdown'],
 	opts: {
