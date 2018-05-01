@@ -166,6 +166,716 @@
     
 
     
+      <h3 class="subsection-title">Methods</h3>
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#.allowedKeys">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id=".allowedKeys">
+      <span class="type-signature">(static) </span>allowedKeys<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    </h4>
+  </span>
+
+  
+    <p class="summary">
+      <p>Checks whether value has only allowed properties</p>.
+    </p>
+  
+
+
+
+  <div class="description">
+    <p>Checks whether value has only allowed properties</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>value</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      any
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>accepts an object</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="validators_shape.js.html">validators/shape.js</a>, <a href="validators_shape.js.html#line57">line 57</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="example-container">
+    <a class="link-icon" href="#allowedKeys-examples">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h5 id="allowedKeys-examples">Example</h5>
+    
+
+  <pre class="prettyprint"><code>import { validators } from 'ego'
+
+const { shape } = validators
+
+const isAllowedKeys = shape.allowedKeys(['prop1', 'prop2'])
+
+console.log(isAllowedKeys(undefined)) // null
+console.log(isAllowedKeys(null)) // null
+console.log(isAllowedKeys({ prop1: 1, prop2: 1 })) // null
+console.log(isAllowedKeys({ prop1: 1 })) // null
+console.log(isAllowedKeys({ prop2: 1 })) // null
+console.log(isAllowedKeys({})) // null
+
+console.log(isAllowedKeys({ prop3: 1 })) // ['shape.allowed.keys', ['prop1', 'prop2']]
+console.log(isAllowedKeys({ prop1: 1, prop3: 1})) // ['shape.allowed.keys', ['prop1', 'prop2']]</code></pre>
+
+
+  </div>
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#.expectKeys">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id=".expectKeys">
+      <span class="type-signature">(static) </span>expectKeys<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    </h4>
+  </span>
+
+  
+    <p class="summary">
+      <p>Checks whether value has forbidden properties</p>.
+    </p>
+  
+
+
+
+  <div class="description">
+    <p>Checks whether value has forbidden properties</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>value</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      any
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>accepts an object</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="validators_shape.js.html">validators/shape.js</a>, <a href="validators_shape.js.html#line119">line 119</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="example-container">
+    <a class="link-icon" href="#expectKeys-examples">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h5 id="expectKeys-examples">Example</h5>
+    
+
+  <pre class="prettyprint"><code>import { validators } from 'ego'
+
+const { shape } = validators
+
+const isExpectedKeys = shape.expectKeys(['prop1', 'prop2'])
+
+console.log(isExpectedKeys(undefined)) // null
+console.log(isExpectedKeys(null)) // null
+console.log(isExpectedKeys({ prop1: 1, prop2: 1 })) // null
+
+console.log(isExpectedKeys({ prop1: 1 })) // ['shape.expected.keys', ['prop1', 'prop2']]
+console.log(isExpectedKeys({ prop2: 1 })) // ['shape.expected.keys', ['prop1', 'prop2']]
+console.log(isExpectedKeys({})) // ['shape.expected.keys', ['prop1', 'prop2']]</code></pre>
+
+
+  </div>
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#.forbiddenKeys">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id=".forbiddenKeys">
+      <span class="type-signature">(static) </span>forbiddenKeys<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    </h4>
+  </span>
+
+  
+    <p class="summary">
+      <p>Checks whether value has forbidden properties</p>.
+    </p>
+  
+
+
+
+  <div class="description">
+    <p>Checks whether value has forbidden properties</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>value</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      any
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>accepts an object</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="validators_shape.js.html">validators/shape.js</a>, <a href="validators_shape.js.html#line88">line 88</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="example-container">
+    <a class="link-icon" href="#forbiddenKeys-examples">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h5 id="forbiddenKeys-examples">Example</h5>
+    
+
+  <pre class="prettyprint"><code>import { validators } from 'ego'
+
+const { shape } = validators
+
+const isForbiddenKeys = shape.forbiddenKeys(['prop1', 'prop2'])
+
+console.log(isForbiddenKeys(undefined)) // null
+console.log(isForbiddenKeys(null)) // null
+console.log(isForbiddenKeys({ prop3: 1, prop4: 1 })) // null
+console.log(isForbiddenKeys({ prop3: 1 })) // null
+console.log(isForbiddenKeys({ prop5: 1 })) // null
+console.log(isForbiddenKeys({})) // null
+
+console.log(isForbiddenKeys({ prop1: 1 })) // ['shape.forbidden.keys', ['prop1', 'prop2']]
+console.log(isForbiddenKeys({ prop1: 1, prop3: 1})) // ['shape.forbidden.keys', ['prop1', 'prop2']]</code></pre>
+
+
+  </div>
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#.isShape">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id=".isShape">
+      <span class="type-signature">(static) </span>isShape<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    </h4>
+  </span>
+
+  
+    <p class="summary">
+      <p>Checks whether value is an object</p>.
+    </p>
+  
+
+
+
+  <div class="description">
+    <p>Checks whether value is an object</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>value</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      any
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>accepts any value</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="validators_shape.js.html">validators/shape.js</a>, <a href="validators_shape.js.html#line31">line 31</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="example-container">
+    <a class="link-icon" href="#isShape-examples">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h5 id="isShape-examples">Example</h5>
+    
+
+  <pre class="prettyprint"><code>import { validators } from 'ego'
+
+const { shape } = validators
+
+console.log(shape.isShape(undefined)) // null
+console.log(shape.isShape(null)) // null
+console.log(shape.isShape({ a: 1 })) // null
+console.log(shape.isShape({})) // null
+
+console.log(shape.isShape('5')) // ['shape.type']
+console.log(shape.isShape([])) // ['shape.type']</code></pre>
+
+
+  </div>
+
+
+      
+    
 
     
 

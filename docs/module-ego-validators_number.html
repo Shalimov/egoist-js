@@ -166,6 +166,1060 @@
     
 
     
+      <h3 class="subsection-title">Methods</h3>
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#.ge">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id=".ge">
+      <span class="type-signature">(static) </span>ge<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    </h4>
+  </span>
+
+  
+    <p class="summary">
+      <p>Checks whether value is greater or equal than defined values</p>.
+    </p>
+  
+
+
+
+  <div class="description">
+    <p>Checks whether value is greater or equal than defined values</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>value</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      any
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>accepts a number value</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="validators_number.js.html">validators/number.js</a>, <a href="validators_number.js.html#line68">line 68</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="example-container">
+    <a class="link-icon" href="#ge-examples">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h5 id="ge-examples">Example</h5>
+    
+
+  <pre class="prettyprint"><code>import { validators } from 'ego'
+
+const { number } = validators
+
+const greaterEqual = number.ge(3)
+
+console.log(greaterEqual(undefined)) // null
+console.log(greaterEqual(null)) // null
+console.log(greaterEqual(4)) // null
+console.log(greaterEqual(3)) // null
+
+console.log(greaterEqual(2)) // ['number.ge', 3]</code></pre>
+
+
+  </div>
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#.gt">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id=".gt">
+      <span class="type-signature">(static) </span>gt<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    </h4>
+  </span>
+
+  
+    <p class="summary">
+      <p>Checks whether value is greater than defined values</p>.
+    </p>
+  
+
+
+
+  <div class="description">
+    <p>Checks whether value is greater than defined values</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>value</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      any
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>accepts a number value</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="validators_number.js.html">validators/number.js</a>, <a href="validators_number.js.html#line42">line 42</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="example-container">
+    <a class="link-icon" href="#gt-examples">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h5 id="gt-examples">Example</h5>
+    
+
+  <pre class="prettyprint"><code>import { validators } from 'ego'
+
+const { number } = validators
+
+const greaterThan = number.gt(3)
+
+console.log(greaterThan(undefined)) // null
+console.log(greaterThan(null)) // null
+console.log(greaterThan(4)) // null
+
+console.log(greaterThan(3)) // ['number.gt', 3]
+console.log(greaterThan(2)) // ['number.gt', 3]</code></pre>
+
+
+  </div>
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#.inRange">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id=".inRange">
+      <span class="type-signature">(static) </span>inRange<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    </h4>
+  </span>
+
+  
+    <p class="summary">
+      <p>Checks whether value is in defined range</p>.
+    </p>
+  
+
+
+
+  <div class="description">
+    <p>Checks whether value is in defined range</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>value</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      any
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>accepts a number value</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="validators_number.js.html">validators/number.js</a>, <a href="validators_number.js.html#line120">line 120</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="example-container">
+    <a class="link-icon" href="#inRange-examples">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h5 id="inRange-examples">Example</h5>
+    
+
+  <pre class="prettyprint"><code>import { validators } from 'ego'
+
+const { number } = validators
+
+const inRng = number.inRange([2, 5])
+
+console.log(inRng(undefined)) // null
+console.log(inRng(null)) // null
+console.log(inRng(2)) // null
+console.log(inRng(3)) // null
+console.log(inRng(4)) // null
+
+console.log(inRng(5)) // ['number.range', [2, 5]]
+console.log(inRng(6)) // ['number.range', [2, 5]]</code></pre>
+
+
+  </div>
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#.isNumber">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id=".isNumber">
+      <span class="type-signature">(static) </span>isNumber<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    </h4>
+  </span>
+
+  
+    <p class="summary">
+      <p>Checks whether value is number</p>.
+    </p>
+  
+
+
+
+  <div class="description">
+    <p>Checks whether value is number</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>value</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      any
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>accepts a number value</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="validators_number.js.html">validators/number.js</a>, <a href="validators_number.js.html#line148">line 148</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="example-container">
+    <a class="link-icon" href="#isNumber-examples">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h5 id="isNumber-examples">Example</h5>
+    
+
+  <pre class="prettyprint"><code>import { validators } from 'ego'
+
+const { number } = validators
+
+console.log(number.isNumber(undefined)) // null
+console.log(number.isNumber(null)) // null
+console.log(number.isNumber(2)) // null
+
+console.log(number.isNumber('5')) // ['number.type']
+console.log(number.isNumber([])) // ['number.type']</code></pre>
+
+
+  </div>
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#.le">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id=".le">
+      <span class="type-signature">(static) </span>le<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    </h4>
+  </span>
+
+  
+    <p class="summary">
+      <p>Checks whether value is lower or equal than defined values</p>.
+    </p>
+  
+
+
+
+  <div class="description">
+    <p>Checks whether value is lower or equal than defined values</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>value</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      any
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>accepts a number value</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="validators_number.js.html">validators/number.js</a>, <a href="validators_number.js.html#line94">line 94</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="example-container">
+    <a class="link-icon" href="#le-examples">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h5 id="le-examples">Example</h5>
+    
+
+  <pre class="prettyprint"><code>import { validators } from 'ego'
+
+const { number } = validators
+
+const lowerOrEqual = number.le(3)
+
+console.log(lowerOrEqual(undefined)) // null
+console.log(lowerOrEqual(null)) // null
+console.log(lowerOrEqual(2)) // null
+console.log(lowerOrEqual(3)) // null
+
+console.log(lowerOrEqual(4)) // ['number.le', 3]</code></pre>
+
+
+  </div>
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#.lt">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id=".lt">
+      <span class="type-signature">(static) </span>lt<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    </h4>
+  </span>
+
+  
+    <p class="summary">
+      <p>Checks whether value is lower than defined values</p>.
+    </p>
+  
+
+
+
+  <div class="description">
+    <p>Checks whether value is lower than defined values</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>value</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      any
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>accepts a number value</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="validators_number.js.html">validators/number.js</a>, <a href="validators_number.js.html#line16">line 16</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="example-container">
+    <a class="link-icon" href="#lt-examples">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h5 id="lt-examples">Example</h5>
+    
+
+  <pre class="prettyprint"><code>import { validators } from 'ego'
+
+const { number } = validators
+
+const lowerThan = number.lt(3)
+
+console.log(lowerThan(undefined)) // null
+console.log(lowerThan(null)) // null
+console.log(lowerThan(2)) // null
+
+console.log(lowerThan(3)) // ['number.lt', 3]
+console.log(lowerThan(4)) // ['number.lt', 3]</code></pre>
+
+
+  </div>
+
+
+      
+    
 
     
 

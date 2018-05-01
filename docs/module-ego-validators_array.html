@@ -181,7 +181,7 @@
       </svg>
     </a>
     <h4 class="name" id=".every">
-      <span class="type-signature">(static) </span>every<span class="signature">(accepts)</span><span class="type-signature"> &rarr; {Array.&lt;string>|null}</span>
+      <span class="type-signature">(static) </span>every<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;string>|null}</span>
     </h4>
   </span>
 
@@ -227,7 +227,7 @@
     
       <tr>
         
-          <td class="name"><code>accepts</code></td>
+          <td class="name"><code>value</code></td>
         
 
         <td class="type">
@@ -248,7 +248,7 @@
         
 
         <td class="description last">
-          <p>an array of any type values</p>
+          <p>accepts an array of any type values</p>
           
         </td>
       </tr>
@@ -356,7 +356,7 @@ console.log(onlyNumbers([1, 2, null, 4, 5])) // ['array.every']</code></pre>
       </svg>
     </a>
     <h4 class="name" id=".inRange">
-      <span class="type-signature">(static) </span>inRange<span class="signature">(accepts)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+      <span class="type-signature">(static) </span>inRange<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
     </h4>
   </span>
 
@@ -402,7 +402,7 @@ console.log(onlyNumbers([1, 2, null, 4, 5])) // ['array.every']</code></pre>
     
       <tr>
         
-          <td class="name"><code>accepts</code></td>
+          <td class="name"><code>value</code></td>
         
 
         <td class="type">
@@ -423,7 +423,7 @@ console.log(onlyNumbers([1, 2, null, 4, 5])) // ['array.every']</code></pre>
         
 
         <td class="description last">
-          <p>an array of any type values</p>
+          <p>accepts an array of any type values</p>
           
         </td>
       </tr>
@@ -505,7 +505,7 @@ console.log(onlyNumbers([1, 2, null, 4, 5])) // ['array.every']</code></pre>
 
 const { array } = validators
 
-const between5and10 = array.inRange(3, 5)
+const between5and10 = array.inRange([3, 5])
 
 console.log(between5and10(undefined)) // null
 console.log(between5and10(null)) // null
@@ -698,7 +698,7 @@ console.log(array.isArray(1)) // ['array.type']</code></pre>
       </svg>
     </a>
     <h4 class="name" id=".length">
-      <span class="type-signature">(static) </span>length<span class="signature">(accepts)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+      <span class="type-signature">(static) </span>length<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
     </h4>
   </span>
 
@@ -744,7 +744,7 @@ console.log(array.isArray(1)) // ['array.type']</code></pre>
     
       <tr>
         
-          <td class="name"><code>accepts</code></td>
+          <td class="name"><code>value</code></td>
         
 
         <td class="type">
@@ -765,7 +765,7 @@ console.log(array.isArray(1)) // ['array.type']</code></pre>
         
 
         <td class="description last">
-          <p>an array of any type values</p>
+          <p>accepts an array of any type values</p>
           
         </td>
       </tr>
@@ -867,188 +867,13 @@ console.log(exlength3([1, 2])) // ['array.exact.length', 3]</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.length">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h4 class="name" id=".length">
-      <span class="type-signature">(static) </span>length<span class="signature">(accepts)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
-    </h4>
-  </span>
-
-  
-    <p class="summary">
-      <p>Checks whether an array has exact length</p>.
-    </p>
-  
-
-
-
-  <div class="description">
-    <p>Checks whether an array has exact length</p>
-  </div>
-
-
-
-
-
-
-
-  <h5>Parameters:</h5>
-  
-
-<table class="params">
-  <thead>
-    <tr>
-      
-        <th>Name</th>
-      
-
-      <th>Type</th>
-
-      
-
-      
-
-      <th class="last">Description</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    
-      <tr>
-        
-          <td class="name"><code>accepts</code></td>
-        
-
-        <td class="type">
-          
-            
-    <span class="param-type">
-      any
-    </span>
-
-    
-
-
-          
-        </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>an array of any type values</p>
-          
-        </td>
-      </tr>
-
-    
-  </tbody>
-</table>
-
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="validators_number.js.html">validators/number.js</a>, <a href="validators_number.js.html#line16">line 16</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="example-container">
-    <a class="link-icon" href="#length-examples">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h5 id="length-examples">Example</h5>
-    
-
-  <pre class="prettyprint"><code>import { validators } from 'ego'
-
-const { array } = validators
-
-const exlength3 = array.length(3)
-
-console.log(exlength3(undefined)) // null
-console.log(exlength3(null)) // null
-console.log(exlength3([1, 2, 3])) // null
-
-console.log(exlength3([1, 2, 3, 4, 5])) // ['array.exact.length', 3]
-console.log(exlength3([1, 2])) // ['array.exact.length', 3]</code></pre>
-
-
-  </div>
-
-
-      
-        
-
-
-  
-
-  <span class='name-container'>
     <a class="link-icon" href="#.maxLength">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
     <h4 class="name" id=".maxLength">
-      <span class="type-signature">(static) </span>maxLength<span class="signature">(accepts)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+      <span class="type-signature">(static) </span>maxLength<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
     </h4>
   </span>
 
@@ -1094,7 +919,7 @@ console.log(exlength3([1, 2])) // ['array.exact.length', 3]</code></pre>
     
       <tr>
         
-          <td class="name"><code>accepts</code></td>
+          <td class="name"><code>value</code></td>
         
 
         <td class="type">
@@ -1115,7 +940,7 @@ console.log(exlength3([1, 2])) // ['array.exact.length', 3]</code></pre>
         
 
         <td class="description last">
-          <p>an array of any type values</p>
+          <p>accepts an array of any type values</p>
           
         </td>
       </tr>
@@ -1223,7 +1048,7 @@ console.log(maxLength3([1, 2, 3, 4])) // ['array.max.length', 3]</code></pre>
       </svg>
     </a>
     <h4 class="name" id=".minLength">
-      <span class="type-signature">(static) </span>minLength<span class="signature">(accepts)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+      <span class="type-signature">(static) </span>minLength<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
     </h4>
   </span>
 
@@ -1269,7 +1094,7 @@ console.log(maxLength3([1, 2, 3, 4])) // ['array.max.length', 3]</code></pre>
     
       <tr>
         
-          <td class="name"><code>accepts</code></td>
+          <td class="name"><code>value</code></td>
         
 
         <td class="type">
@@ -1290,7 +1115,7 @@ console.log(maxLength3([1, 2, 3, 4])) // ['array.max.length', 3]</code></pre>
         
 
         <td class="description last">
-          <p>an array of any type values</p>
+          <p>accepts an array of any type values</p>
           
         </td>
       </tr>
@@ -1399,7 +1224,7 @@ console.log(minLength3([1, 2])) // ['array.min.length', 3]</code></pre>
       </svg>
     </a>
     <h4 class="name" id=".some">
-      <span class="type-signature">(static) </span>some<span class="signature">(accepts)</span><span class="type-signature"> &rarr; {Array.&lt;string>|null}</span>
+      <span class="type-signature">(static) </span>some<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;string>|null}</span>
     </h4>
   </span>
 
@@ -1445,7 +1270,7 @@ console.log(minLength3([1, 2])) // ['array.min.length', 3]</code></pre>
     
       <tr>
         
-          <td class="name"><code>accepts</code></td>
+          <td class="name"><code>value</code></td>
         
 
         <td class="type">
@@ -1466,7 +1291,7 @@ console.log(minLength3([1, 2])) // ['array.min.length', 3]</code></pre>
         
 
         <td class="description last">
-          <p>an array of any type values</p>
+          <p>accepts an array of any type values</p>
           
         </td>
       </tr>

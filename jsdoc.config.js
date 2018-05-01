@@ -14,6 +14,7 @@ module.exports = {
 	},
 	templates: {
 		referenceTitle: 'Ego Validation Library',
+		disableSort: false,
 	},
 	tags: {
 		allowUnknownTags: true,
