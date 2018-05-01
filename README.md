@@ -2,7 +2,7 @@
 Inspired by functional programming
 ***
 Docs in progress.
-However you can look at [Egoist-JS](https://shalimov.github.io/ego/module-ego.html) pages
+However you can look at [Egoist-JS](https://shalimov.github.io/egoist-js/module-ego.html) pages
 
 ## Get started
 
