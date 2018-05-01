@@ -1,6 +1,6 @@
 module.exports = {
 	source: {
-		include: ['./lib'],
+		include: ['./lib', 'README.md'],
 	},
 	plugins: [
 		'plugins/markdown',
@@ -11,6 +11,9 @@ module.exports = {
 		encoding: 'utf8',
 		destination: './docs/',
 		recurse: true,
+	},
+	templates: {
+		referenceTitle: 'Ego Validation Library',
 	},
 	tags: {
 		allowUnknownTags: true,

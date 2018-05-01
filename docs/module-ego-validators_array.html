@@ -67,7 +67,7 @@
 
   <nav>
     <h3 class="reference-title">
-      Braintree SDK Client Reference
+      Ego Validation Library
     </h3>
 
     <h3>Modules</h3><ul><li id="ego-nav"><a href="module-ego.html">ego</a><ul class='methods'><li data-type="method" id="ego-isInvalid-nav"><a href="module-ego.html#~isInvalid">isInvalid</a></li><li data-type="method" id="ego-isValid-nav"><a href="module-ego.html#~isValid">isValid</a></li><li data-type="method" id="ego-validate-nav"><a href="module-ego.html#~validate">validate</a></li></ul></li></ul>
@@ -810,6 +810,181 @@ console.log(array.isArray(1)) // ['array.type']</code></pre>
       <ul class="dummy">
         <li>
           <a href="validators_array.js.html">validators/array.js</a>, <a href="validators_array.js.html#line173">line 173</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="example-container">
+    <a class="link-icon" href="#length-examples">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h5 id="length-examples">Example</h5>
+    
+
+  <pre class="prettyprint"><code>import { validators } from 'ego'
+
+const { array } = validators
+
+const exlength3 = array.length(3)
+
+console.log(exlength3(undefined)) // null
+console.log(exlength3(null)) // null
+console.log(exlength3([1, 2, 3])) // null
+
+console.log(exlength3([1, 2, 3, 4, 5])) // ['array.exact.length', 3]
+console.log(exlength3([1, 2])) // ['array.exact.length', 3]</code></pre>
+
+
+  </div>
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#.length">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id=".length">
+      <span class="type-signature">(static) </span>length<span class="signature">(accepts)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    </h4>
+  </span>
+
+  
+    <p class="summary">
+      <p>Checks whether an array has exact length</p>.
+    </p>
+  
+
+
+
+  <div class="description">
+    <p>Checks whether an array has exact length</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>accepts</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      any
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>an array of any type values</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="validators_number.js.html">validators/number.js</a>, <a href="validators_number.js.html#line16">line 16</a>
         </li>
       </ul>
     </dd>
