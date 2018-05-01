@@ -70,7 +70,7 @@
       Ego Validation Library
     </h3>
 
-    <h3>Modules</h3><ul><li id="ego-nav"><a href="module-ego.html">ego</a><ul class='methods'><li data-type="method" id="ego-isInvalid-nav"><a href="module-ego.html#~isInvalid">isInvalid</a></li><li data-type="method" id="ego-isValid-nav"><a href="module-ego.html#~isValid">isValid</a></li><li data-type="method" id="ego-validate-nav"><a href="module-ego.html#~validate">validate</a></li><li data-type="method" id="ego-validateWithOpts-nav"><a href="module-ego.html#~validateWithOpts">validateWithOpts</a></li></ul></li></ul>
+    <h3>Modules</h3><ul><li id="ego-nav"><a href="module-ego.html">ego</a><ul class='methods'><li data-type="method" id="ego-createValidateFunction-nav"><a href="module-ego.html#.createValidateFunction">createValidateFunction</a></li><li data-type="method" id="ego-isInvalid-nav"><a href="module-ego.html#.isInvalid">isInvalid</a></li><li data-type="method" id="ego-isValid-nav"><a href="module-ego.html#.isValid">isValid</a></li><li data-type="method" id="ego-validate-nav"><a href="module-ego.html#.validate">validate</a></li><li data-type="method" id="ego-validateAll-nav"><a href="module-ego.html#.validateAll">validateAll</a></li><li data-type="method" id="ego-validateAllWithOpts-nav"><a href="module-ego.html#.validateAllWithOpts">validateAllWithOpts</a></li><li data-type="method" id="ego-validateWithOpts-nav"><a href="module-ego.html#.validateWithOpts">validateWithOpts</a></li></ul></li></ul>
   </nav>
 
   <div id="main">
@@ -242,13 +242,244 @@
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#~isInvalid">
+    <a class="link-icon" href="#.createValidateFunction">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id="~isInvalid">
-      <span class="type-signature">(inner) </span>isInvalid<span class="signature">(specFn, value)</span><span class="type-signature"> &rarr; {boolean}</span>
+    <h4 class="name" id=".createValidateFunction">
+      <span class="type-signature">(static) </span>createValidateFunction<span class="signature">(opts)</span><span class="type-signature"> &rarr; {Array.&lt;function()>}</span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    <p>Function helps to create your own validation functions and define your own validation messages</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>opts</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      Object
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>object with <code>customMessages</code>, pls look at the example below</p>
+          
+            <h6>Properties</h6>
+            
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>untilFail</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      boolean
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>tells validation functions when to stop,
+if true check validators until first fail, else check all of them</p>
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
+          <td class="name"><code>messageFuncs</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      Object.&lt;string, function()>
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>object with <a href="module-ego-ERROR_KEYS.html">error keys</a> and <a href="module-ego-ERROR_MESSAGES.html">error message function</a></p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line331">line 331</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#.isInvalid">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id=".isInvalid">
+      <span class="type-signature">(static) </span>isInvalid<span class="signature">(specFn, value)</span><span class="type-signature"> &rarr; {boolean}</span>
     </h4>
   </span>
 
@@ -311,9 +542,9 @@
         
 
         <td class="description last">
-          <p>generated data spec flow,
-of,
-compose</p>
+          <p>generated spec function by: <a href="module-ego-spec.html#.flow">flow</a>,
+<a href="module-ego-spec.html#.of">of</a> or
+<a href="module-ego-spec.html#.compose">compose</a></p>
           
         </td>
       </tr>
@@ -386,7 +617,7 @@ compose</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line118">line 118</a>
+          <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line119">line 119</a>
         </li>
       </ul>
     </dd>
@@ -444,13 +675,13 @@ console.log(isInvalidUsernameFn('')) // true</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#~isValid">
+    <a class="link-icon" href="#.isValid">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id="~isValid">
-      <span class="type-signature">(inner) </span>isValid<span class="signature">(specFn, value)</span><span class="type-signature"> &rarr; {boolean}</span>
+    <h4 class="name" id=".isValid">
+      <span class="type-signature">(static) </span>isValid<span class="signature">(specFn, value)</span><span class="type-signature"> &rarr; {boolean}</span>
     </h4>
   </span>
 
@@ -513,9 +744,9 @@ console.log(isInvalidUsernameFn('')) // true</code></pre>
         
 
         <td class="description last">
-          <p>generated data spec flow,
-of,
-compose</p>
+          <p>generated spec function by: <a href="module-ego-spec.html#.flow">flow</a>,
+<a href="module-ego-spec.html#.of">of</a> or
+<a href="module-ego-spec.html#.compose">compose</a></p>
           
         </td>
       </tr>
@@ -646,13 +877,13 @@ console.log(isValidUsernameFn('')) // false</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#~validate">
+    <a class="link-icon" href="#.validate">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id="~validate">
-      <span class="type-signature">(inner) </span>validate<span class="signature">(specFn, value)</span><span class="type-signature"> &rarr; {Array.&lt;Object>|Null}</span>
+    <h4 class="name" id=".validate">
+      <span class="type-signature">(static) </span>validate<span class="signature">(specFn, value)</span><span class="type-signature"> &rarr; {Array.&lt;Object>|Null}</span>
     </h4>
   </span>
 
@@ -715,9 +946,9 @@ console.log(isValidUsernameFn('')) // false</code></pre>
         
 
         <td class="description last">
-          <p>generated data spec flow,
-of,
-compose</p>
+          <p>generated spec function by: <a href="module-ego-spec.html#.flow">flow</a>,
+<a href="module-ego-spec.html#.of">of</a> or
+<a href="module-ego-spec.html#.compose">compose</a></p>
           
         </td>
       </tr>
@@ -790,7 +1021,7 @@ compose</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line146">line 146</a>
+          <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line148">line 148</a>
         </li>
       </ul>
     </dd>
@@ -875,13 +1106,13 @@ console.log(validationResult)
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#~validateWithOpts">
+    <a class="link-icon" href="#.validateAll">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id="~validateWithOpts">
-      <span class="type-signature">(inner) </span>validateWithOpts<span class="signature">(specFn, opts, value)</span><span class="type-signature"> &rarr; {Array.&lt;Object>|Null}</span>
+    <h4 class="name" id=".validateAll">
+      <span class="type-signature">(static) </span>validateAll<span class="signature">(specFn, value)</span><span class="type-signature"> &rarr; {Array.&lt;Object>|Null}</span>
     </h4>
   </span>
 
@@ -890,7 +1121,7 @@ console.log(validationResult)
 
 
   <div class="description">
-    <p>Curried function with opts, returns validation info if data has errors</p>
+    <p>Curried function returns info about all errors if data has them</p>
   </div>
 
 
@@ -944,38 +1175,9 @@ console.log(validationResult)
         
 
         <td class="description last">
-          <p>generated data spec flow,
-of,
-compose</p>
-          
-        </td>
-      </tr>
-
-    
-      <tr>
-        
-          <td class="name"><code>opts</code></td>
-        
-
-        <td class="type">
-          
-            
-    <span class="param-type">
-      Object
-    </span>
-
-    
-
-
-          
-        </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>object with <code>customMessages</code>, pls look at the example below</p>
+          <p>generated spec function by: <a href="module-ego-spec.html#.flow">flow</a>,
+<a href="module-ego-spec.html#.of">of</a> or
+<a href="module-ego-spec.html#.compose">compose</a></p>
           
         </td>
       </tr>
@@ -1048,7 +1250,593 @@ compose</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line201">line 201</a>
+          <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line259">line 259</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="example-container">
+    <a class="link-icon" href="#validateAll-examples">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h5 id="validateAll-examples">Example</h5>
+    
+
+  <pre class="prettyprint"><code>import { validateAll, spec, validators } from 'egoist-js'
+
+const { shape, number, string, any } = validators
+
+const simpleSpec = spec.flow(
+ string.isString,
+ string.isDigits,
+ string.isNotEmpty,
+ any.required
+)
+
+console.log(validateAll(simpleSpec, 'hello'))
+// [
+//   { message: 'value should be a string', value: 'hello', args: undefined, path: [] },
+//   { message: 'value should contain only digits', value: 'hello', args: undefined, path: [] },
+// ]</code></pre>
+
+
+  </div>
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#.validateAllWithOpts">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id=".validateAllWithOpts">
+      <span class="type-signature">(static) </span>validateAllWithOpts<span class="signature">(specFn, opts, value)</span><span class="type-signature"> &rarr; {Array.&lt;Object>|Null}</span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    <p>Curried function with opts, returns info about all errors if data has them</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>specFn</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      function
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>generated spec function by: <a href="module-ego-spec.html#.flow">flow</a>,
+<a href="module-ego-spec.html#.of">of</a> or
+<a href="module-ego-spec.html#.compose">compose</a></p>
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
+          <td class="name"><code>opts</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      Object
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>options object</p>
+          
+            <h6>Properties</h6>
+            
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>customMessages</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      Object
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>overrides validation messages for standart library</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
+          <td class="name"><code>value</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      any
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>value to check</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line291">line 291</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="example-container">
+    <a class="link-icon" href="#validateAllWithOpts-examples">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h5 id="validateAllWithOpts-examples">Example</h5>
+    
+
+  <pre class="prettyprint"><code>import { validateWithOpts, spec, validators, ERROR_KEYS } from 'egoist-js'
+
+const { shape, number, string, any } = validators
+
+const simpleSpec = spec.flow(
+ string.isString,
+ string.isDigits,
+ string.isNotEmpty,
+ any.required
+)
+
+const extValidateAll = validateAll(simpleSpec, {
+ customMessages: {
+  [ERROR_KEYS.STRING.TYPE]: ({ label, value, args, path }) => 'yeah, yeah, yeah ${label} should be a string',
+ },
+})
+
+console.log(extValidateAll(simpleSpec, 'hello'))
+// [
+//   { message: 'yeah, yeah, yeah value should be a string', value: 'hello', args: undefined, path: [] },
+//   { message: 'value should contain only digits', value: 'hello', args: undefined, path: [] },
+// ]</code></pre>
+
+
+  </div>
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#.validateWithOpts">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id=".validateWithOpts">
+      <span class="type-signature">(static) </span>validateWithOpts<span class="signature">(specFn, opts, value)</span><span class="type-signature"> &rarr; {Array.&lt;Object>|Null}</span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    <p>Curried function with opts, returns validation info if data has errors</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>specFn</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      function
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>generated spec function by: <a href="module-ego-spec.html#.flow">flow</a>,
+<a href="module-ego-spec.html#.of">of</a> or
+<a href="module-ego-spec.html#.compose">compose</a></p>
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
+          <td class="name"><code>opts</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      Object
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>options object</p>
+          
+            <h6>Properties</h6>
+            
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>customMessages</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      Object
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>overrides validation messages for standart library</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
+          <td class="name"><code>value</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      any
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>value to check</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line204">line 204</a>
         </li>
       </ul>
     </dd>

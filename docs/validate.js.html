@@ -72,7 +72,7 @@
       Ego Validation Library
     </h3>
 
-    <h3>Modules</h3><ul><li id="ego-nav"><a href="module-ego.html">ego</a><ul class='methods'><li data-type="method" id="ego-isInvalid-nav"><a href="module-ego.html#~isInvalid">isInvalid</a></li><li data-type="method" id="ego-isValid-nav"><a href="module-ego.html#~isValid">isValid</a></li><li data-type="method" id="ego-validate-nav"><a href="module-ego.html#~validate">validate</a></li><li data-type="method" id="ego-validateWithOpts-nav"><a href="module-ego.html#~validateWithOpts">validateWithOpts</a></li></ul></li></ul>
+    <h3>Modules</h3><ul><li id="ego-nav"><a href="module-ego.html">ego</a><ul class='methods'><li data-type="method" id="ego-createValidateFunction-nav"><a href="module-ego.html#.createValidateFunction">createValidateFunction</a></li><li data-type="method" id="ego-isInvalid-nav"><a href="module-ego.html#.isInvalid">isInvalid</a></li><li data-type="method" id="ego-isValid-nav"><a href="module-ego.html#.isValid">isValid</a></li><li data-type="method" id="ego-validate-nav"><a href="module-ego.html#.validate">validate</a></li><li data-type="method" id="ego-validateAll-nav"><a href="module-ego.html#.validateAll">validateAll</a></li><li data-type="method" id="ego-validateAllWithOpts-nav"><a href="module-ego.html#.validateAllWithOpts">validateAllWithOpts</a></li><li data-type="method" id="ego-validateWithOpts-nav"><a href="module-ego.html#.validateWithOpts">validateWithOpts</a></li></ul></li></ul>
   </nav>
 
   <div id="main">
@@ -179,10 +179,11 @@ export default {
   /**
    * Curried function tells whether value is valid
    * @function isValid
+   * @static
    * 
-   * @arg {function} specFn - generated data spec {@link specification.flow|flow},
-   * {@link specification.of|of},
-   * {@link specification.compose|compose}
+   * @arg {function} specFn - generated spec function by: {@link module:ego~spec.flow|flow},
+   * {@link module:ego~spec.of|of} or
+   * {@link module:ego~spec.compose|compose}
    * @arg {any} value - value to check
    * 
    * @returns {boolean} True if value is valid, othervise false
@@ -207,10 +208,11 @@ export default {
   /**
    * Curried function tells whether value is invalid
    * @function isInvalid
+   * @static
    * 
-   * @arg {function} specFn - generated data spec {@link specification.flow|flow},
-   * {@link specification.of|of},
-   * {@link specification.compose|compose}
+   * @arg {function} specFn - generated spec function by: {@link module:ego~spec.flow|flow},
+   * {@link module:ego~spec.of|of} or
+   * {@link module:ego~spec.compose|compose}
    * @arg {any} value - value to check
    * 
    * @returns {boolean} True if value is invalid, othervise false
@@ -235,10 +237,11 @@ export default {
   /**
    * Curried function returns validation info if data has errors
    * @function validate
+   * @static
    * 
-   * @arg {function} specFn - generated data spec {@link specification.flow|flow},
-   * {@link specification.of|of},
-   * {@link specification.compose|compose}
+   * @arg {function} specFn - generated spec function by: {@link module:ego~spec.flow|flow},
+   * {@link module:ego~spec.of|of} or
+   * {@link module:ego~spec.compose|compose}
    * @arg {any} value - value to check
    * 
    * @returns {Object[]|Null} Null if data is valid, otherwise one item array with reason of error
@@ -290,11 +293,13 @@ export default {
   /**
    * Curried function with opts, returns validation info if data has errors
    * @function validateWithOpts
+   * @static
    * 
-   * @arg {function} specFn - generated data spec {@link specification.flow|flow},
-   * {@link specification.of|of},
-   * {@link specification.compose|compose}
-   * @arg {Object} opts - object with `customMessages`, pls look at the example below
+   * @arg {function} specFn - generated spec function by: {@link module:ego~spec.flow|flow},
+   * {@link module:ego~spec.of|of} or
+   * {@link module:ego~spec.compose|compose}
+   * @arg {Object} opts - options object
+   * @arg {Object} opts.customMessages - overrides validation messages for standart library
    * @arg {any} value - value to check
    * 
    * @returns {Object[]|Null} Null if data is valid, otherwise one item array with reason of error
@@ -340,8 +345,91 @@ export default {
    * 
    */
   validateWithOpts: fp.curry(validateWithOpts),
+  /**
+   * Curried function returns info about all errors if data has them
+   * @function validateAll
+   * @static
+   * 
+   * @arg {function} specFn - generated spec function by: {@link module:ego~spec.flow|flow},
+   * {@link module:ego~spec.of|of} or
+   * {@link module:ego~spec.compose|compose}
+   * @arg {any} value - value to check
+   * 
+   * @returns {Object[]|Null} Null if data is valid, otherwise array with all reasons of error
+   * 
+   * @example
+   * 
+   * import { validateAll, spec, validators } from 'egoist-js'
+   * 
+   * const { shape, number, string, any } = validators
+   * 
+   * const simpleSpec = spec.flow(
+   *  string.isString,
+   *  string.isDigits,
+   *  string.isNotEmpty,
+   *  any.required
+   * )
+   * 
+   * console.log(validateAll(simpleSpec, 'hello'))
+   * // [
+   * //   { message: 'value should be a string', value: 'hello', args: undefined, path: [] },
+   * //   { message: 'value should contain only digits', value: 'hello', args: undefined, path: [] },
+   * // ]
+   */
   validateAll: fp.curry(validateAll),
+  /**
+   * Curried function with opts, returns info about all errors if data has them
+   * @function validateAllWithOpts
+   * @static
+   * 
+   * @arg {function} specFn - generated spec function by: {@link module:ego~spec.flow|flow},
+   * {@link module:ego~spec.of|of} or
+   * {@link module:ego~spec.compose|compose}
+   * @arg {Object} opts - options object
+   * @arg {Object} opts.customMessages - overrides validation messages for standart library
+   * @arg {any} value - value to check
+   * 
+   * @returns {Object[]|Null} Null if data is valid, otherwise one item array with reason of error
+   * 
+   * @example
+   * 
+   * import { validateWithOpts, spec, validators, ERROR_KEYS } from 'egoist-js'
+   * 
+   * const { shape, number, string, any } = validators
+   * 
+   * const simpleSpec = spec.flow(
+   *  string.isString,
+   *  string.isDigits,
+   *  string.isNotEmpty,
+   *  any.required
+   * )
+   * 
+   * const extValidateAll = validateAll(simpleSpec, {
+   *  customMessages: {
+   *   [ERROR_KEYS.STRING.TYPE]: ({ label, value, args, path }) => 'yeah, yeah, yeah ${label} should be a string',
+   *  },
+   * })
+   * 
+   * console.log(extValidateAll(simpleSpec, 'hello'))
+   * // [
+   * //   { message: 'yeah, yeah, yeah value should be a string', value: 'hello', args: undefined, path: [] },
+   * //   { message: 'value should contain only digits', value: 'hello', args: undefined, path: [] },
+   * // ]
+   */
   validateAllWithOpts: fp.curry(validateAllWithOpts),
+  /**
+   * Function helps to create your own validation functions and define your own validation messages
+   * @function createValidateFunction
+   * @static
+   * 
+   * @arg {Object} opts - object with `customMessages`, pls look at the example below
+   * @arg {boolean} opts.untilFail - tells validation functions when to stop,
+   * if true check validators until first fail, else check all of them
+   * @arg {Object&lt;string, function>} opts.messageFuncs - object with {@link module:ego~ERROR_KEYS|error keys} and {@link module:ego~ERROR_MESSAGES|error message function}
+   * 
+   * @returns {function[]} tuple with two functions e.g: [validate, validateWithOpts]
+   * 
+   */
   createValidateFunction,
 }
 </code></pre>
