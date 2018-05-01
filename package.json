@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "gen:readme": "jsdoc",
-    "gen:docs": "jsdoc -r ./lib/ -t ./node_modules/docdash",
+    "gen:docs": "jsdoc -c ./jsdoc.config.js",
     "precommit": "yarn gulp && yarn build && git add .",
     "test": "./node_modules/mocha/bin/mocha --opts ./mocha.opts ./specs/**/*.spec.js ./specs/*.spec.js",
     "build": "gulp build"
@@ -28,6 +28,7 @@
     "gulp-uglify": "^3.0.0",
     "husky": "^0.14.3",
     "jsdoc": "^3.5.5",
+    "jsdoc-template": "https://github.com/braintree/jsdoc-template.git",
     "mocha": "^5.1.1",
     "should": "^13.2.1",
     "vinyl-buffer": "^1.0.1",
