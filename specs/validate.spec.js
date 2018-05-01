@@ -87,7 +87,7 @@ describe('Validate Module Spec', () => {
 			})
 
 			validateAdultModel(createUserModel('Mark', 17, 'New-York')).should.matchEach(it => {
-				it.message.should.be.eql('age should be greater than or equal 18')
+				it.message.should.be.eql('age should be greater or equal than 18')
 				should(it.value).be.eql(17)
 			})
 
@@ -126,7 +126,7 @@ describe('Validate Module Spec', () => {
 					'value is required',
 					'username is required',
 					'age is required',
-					'age should be greater than or equal 18',
+					'age should be greater or equal than 18',
 					'city is required',
 				])
 				should(it.value).be.Undefined()
@@ -134,7 +134,7 @@ describe('Validate Module Spec', () => {
 
 			validateAllAdultModel(createUserModel('Mark', 17, null)).should.matchEach(it => {
 				it.message.should.be.oneOf([
-					'age should be greater than or equal 18',
+					'age should be greater or equal than 18',
 					'city is required',
 				])
 				should(it.value).be.oneOf([null, 17])
@@ -143,7 +143,7 @@ describe('Validate Module Spec', () => {
 			validateAllAdultModel(createUserModel(null, 17, null)).should.matchEach(it => {
 				it.message.should.be.oneOf([
 					'username is required',
-					'age should be greater than or equal 18',
+					'age should be greater or equal than 18',
 					'city is required',
 				])
 				should(it.value).be.oneOf([null, 17])
@@ -152,7 +152,7 @@ describe('Validate Module Spec', () => {
 			validateAllAdultModel(createUserModel(null, 17, null, false)).should.matchEach(it => {
 				it.message.should.be.oneOf([
 					'username is required',
-					'age should be greater than or equal 18',
+					'age should be greater or equal than 18',
 					'city is required',
 				])
 

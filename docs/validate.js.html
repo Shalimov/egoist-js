@@ -141,11 +141,11 @@ const createValidateFunction = ({ untilFail, messageFuncs }) => {
         message: messageFn({
           label: getLabel(context),
           value,
-          path,
+          get path() { return path() },
           args,
         }),
         value,
-        path,
+        get path() { return path() },
         args,
       })
     }
@@ -247,10 +247,43 @@ export default {
    * 
    * import { validate, spec, validators } from 'ego'
    * 
-   * const { string, any } = validators
+   * const { shape, number, string, any } = validators
    * 
    * const usernameSpec = spec.flow(string.isString, string.isNotEmpty, any.required)
    * console.log(validate(usernameSpec, 'hello')) // null
+   * 
+   * const validateUsername = validate(usernameSpec)
+   * 
+   * console.log(validateUsername(null)) 
+   * // [{
+   * //  message: 'value is required', 
+   * //  value: null, 
+   * //  args: undefined, 
+   * //  path: [] // path is computed property
+   * // }]
+   * 
+   * 
+   * const adultUserModelSpec = spec.compose(
+   *  spec.flow(
+   *   shape.isShape,
+   *   shape.hasKeys('name', 'age'),
+   *   any.required,
+   *  ),
+   *  spec.of({
+   *   name: spec.flow(string.isString, string.isNotEmpty, any.required),
+   *   age: spec.flow(number.isNumber, number.ge(18), any.required),
+   *  })
+   * )
+   * 
+   * const validateAdultUser = validate(adultUserModelSpec)
+   * 
+   * const validationResult = validateAdultUser({
+   *  name: 'Oliver Darkside',
+   *  age: 17,
+   * })
+   * 
+   * console.log(validationResult) 
+   * // [{ message: '', value: 17, args: 18, path: ['age'] }]
    * 
    */
   validate: fp.curry(validate),
