@@ -2,10 +2,18 @@
 # Inspired by functional programming
 ## To see the docs pls follow [Docs](https://shalimov.github.io/ego/module-ego.html)
 
+## Get started
+
+```
+yarn add egoist-js
+OR
+npm i egoist-js
+```
+
 **Example of what we have:**
 ```javascript
 
-import { 
+import {
   spec,
   validate,
   validateWithOpts,
@@ -18,7 +26,7 @@ import {
   toValidatorWithArgs,
   ERROR_KEYS,
   ERROR_MESSAGES,
-} from 'ego'
+} from 'egoist-js'
 
 const {
   any,

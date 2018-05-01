@@ -1,9 +1,9 @@
 {
-  "name": "ego",
+  "name": "egoist-js",
   "version": "1.0.0",
   "description": "Validation lib for FE/BE",
   "main": "./dist/dist.js",
-  "author": "Shalimov Igor",
+  "author": "igor.shalimov ",
   "license": "MIT",
   "keywords": [
     "validation",
