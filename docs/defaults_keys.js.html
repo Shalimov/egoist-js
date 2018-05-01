@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      validators/boolean - Documentation
+      defaults/keys.js - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -70,279 +72,154 @@
       Ego Validation Library
     </h3>
 
-    <h3>Modules</h3><ul><li id="ego-nav"><a href="module-ego.html">ego</a><ul class='methods'><li data-type="method" id="ego-isInvalid-nav"><a href="module-ego.html#~isInvalid">isInvalid</a></li><li data-type="method" id="ego-isValid-nav"><a href="module-ego.html#~isValid">isValid</a></li><li data-type="method" id="ego-validate-nav"><a href="module-ego.html#~validate">validate</a></li></ul></li></ul>
+    <h3>Modules</h3><ul><li id="ego-nav"><a href="module-ego.html">ego</a><ul class='methods'><li data-type="method" id="ego-isInvalid-nav"><a href="module-ego.html#~isInvalid">isInvalid</a></li><li data-type="method" id="ego-isValid-nav"><a href="module-ego.html#~isValid">isValid</a></li><li data-type="method" id="ego-validate-nav"><a href="module-ego.html#~validate">validate</a></li><li data-type="method" id="ego-validateWithOpts-nav"><a href="module-ego.html#~validateWithOpts">validateWithOpts</a></li></ul></li></ul>
   </nav>
 
   <div id="main">
     
       <h1 class="page-title">
-        validators/boolean
+        defaults/keys.js
       </h1>
     
 
     
+      
 
 <section>
-  <header>
-    
-      <h2>
-        
-          <span class="ancestors"><a href="module-ego.html">ego</a>~</span>
-        
-        validators/boolean
-        
-      </h2>
-
-      
-    
-  </header>
-
   <article>
-    <div class="container-overview">
-      
-        
-
-        
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="validators_boolean.js.html">validators/boolean.js</a>, <a href="validators_boolean.js.html#line2">line 2</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-        
-      
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-      <h3 class="subsection-title">Methods</h3>
-
-      
-        
-
-
-  
-
-  <span class='name-container'>
-    <a class="link-icon" href="#.isBoolean">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h4 class="name" id=".isBoolean">
-      <span class="type-signature">(static) </span>isBoolean<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;string>|null}</span>
-    </h4>
-  </span>
-
-  
-
-
-
-
-
-
-
-
-
-  <h5>Parameters:</h5>
-  
-
-<table class="params">
-  <thead>
-    <tr>
-      
-        <th>Name</th>
-      
-
-      <th>Type</th>
-
-      
-
-      
-
-      <th class="last">Description</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    
-      <tr>
-        
-          <td class="name"><code>value</code></td>
-        
-
-        <td class="type">
-          
-            
-    <span class="param-type">
-      any
-    </span>
-
-    
-
-
-          
-        </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>any possible value</p>
-          
-        </td>
-      </tr>
-
-    
-  </tbody>
-</table>
-
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="validators_boolean.js.html">validators/boolean.js</a>, <a href="validators_boolean.js.html#line11">line 11</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="example-container">
-    <a class="link-icon" href="#isBoolean-examples">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h5 id="isBoolean-examples">Example</h5>
-    
-
-  <pre class="prettyprint"><code>import { validators } from 'egoist-js'
-
-const { boolean } = validators
-
-console.log(boolean.isBoolean(undefined)) // null
-console.log(boolean.isBoolean(null)) // null
-console.log(boolean.isBoolean(true)) // null
-console.log(boolean.isBoolean([])) // null
-
-console.log(boolean.isBoolean(1)) // ['boolean.type']</code></pre>
-
-
-  </div>
-
-
-      
-    
-
-    
-
-    
+    <pre class="prettyprint source linenums"><code>/** @module ego */
+/** @namespace module:ego~ERROR_KEYS */
+import { freeze } from '../utils'
+
+const ERROR_KEYS = freeze({
+  /**
+   * @memberof module:ego~ERROR_KEYS
+   * 
+   * @example
+   * ANY: {
+   *  UNKNOWN: 'any.unknown',
+   *  REQUIRED: 'any.required',
+   *  ALLOW: 'any.allow',
+   * }
+   */
+  ANY: {
+    UNKNOWN: 'any.unknown',
+    REQUIRED: 'any.required',
+    ALLOW: 'any.allow',
+  },
+  /**
+   * @memberof module:ego~ERROR_KEYS
+   * 
+   * @example
+   * 
+   * NUMBER: {
+   *  TYPE: 'number.type',
+   *  GE: 'number.ge',
+   *  GT: 'number.gt',
+   *  LE: 'number.le',
+   *  LT: 'number.lt',
+   *  RANGE: 'number.range',
+   * }
+   * 
+   */
+  NUMBER: {
+    TYPE: 'number.type',
+    GE: 'number.ge',
+    GT: 'number.gt',
+    LE: 'number.le',
+    LT: 'number.lt',
+    RANGE: 'number.range',
+  },
+  /**
+   * @memberof module:ego~ERROR_KEYS
+   * 
+   * @example
+   * 
+   * STRING: {
+   *  EMPTY: 'string.empty',
+   *  TYPE: 'string.type',
+   *  EMAIL: 'string.email',
+   *  MATCH: 'string.match',
+   *  DIGITS: 'string.digits',
+   *  ALPHANUM: 'string.alphanum',
+   *  ISO_DATE: 'string.iso.date',
+   * }
+   * 
+   */
+  STRING: {
+    EMPTY: 'string.empty',
+    TYPE: 'string.type',
+    EMAIL: 'string.email',
+    MATCH: 'string.match',
+    DIGITS: 'string.digits',
+    ALPHANUM: 'string.alphanum',
+    ISO_DATE: 'string.iso.date',
+  },
+  /**
+   * @memberof module:ego~ERROR_KEYS
+   * 
+   * @example
+   * 
+   * BOOLEAN: {
+   *  TYPE: 'boolean.type',
+   * }
+   * 
+   */
+  BOOLEAN: {
+    TYPE: 'boolean.type',
+  },
+  /**
+   * @memberof module:ego~ERROR_KEYS
+   * 
+   * @example
+   * 
+   * SHAPE: {
+   *  TYPE: 'shape.type',
+   *  ALLOWED_KEYS: 'shape.allowed.keys',
+   *  FORBIDDEN_KEYS: 'shape.forbidden.keys',
+   *  EXPECTED_KEYS: 'shape.expected.keys',
+   * }
+   * 
+   */
+  SHAPE: {
+    TYPE: 'shape.type',
+    ALLOWED_KEYS: 'shape.allowed.keys',
+    FORBIDDEN_KEYS: 'shape.forbidden.keys',
+    EXPECTED_KEYS: 'shape.expected.keys',
+  },
+  /**
+   * @memberof module:ego~ERROR_KEYS
+   * 
+   * @example
+   * 
+   * ARRAY: {
+   *  TYPE: 'array.type',
+   *  MIN_LENGTH: 'array.min.length',
+   *  MAX_LENGTH: 'array.max.length',
+   *  IN_RANGE: 'array.range',
+   *  LENGTH: 'array.exact.length',
+   *  EVERY: 'array.every',
+   *  SOME: 'array.some',
+   * }
+   * 
+   */
+  ARRAY: {
+    TYPE: 'array.type',
+    MIN_LENGTH: 'array.min.length',
+    MAX_LENGTH: 'array.max.length',
+    IN_RANGE: 'array.range',
+    LENGTH: 'array.exact.length',
+    EVERY: 'array.every',
+    SOME: 'array.some',
+  },
+})
+
+export default ERROR_KEYS
+</code></pre>
   </article>
 </section>
 
-
+    
 
 
   </div>

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      validators/number - Documentation
+      module:ego - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -70,13 +70,13 @@
       Ego Validation Library
     </h3>
 
-    <h3>Modules</h3><ul><li id="ego-nav"><a href="module-ego.html">ego</a><ul class='methods'><li data-type="method" id="ego-isInvalid-nav"><a href="module-ego.html#~isInvalid">isInvalid</a></li><li data-type="method" id="ego-isValid-nav"><a href="module-ego.html#~isValid">isValid</a></li><li data-type="method" id="ego-validate-nav"><a href="module-ego.html#~validate">validate</a></li></ul></li></ul>
+    <h3>Modules</h3><ul><li id="ego-nav"><a href="module-ego.html">ego</a><ul class='methods'><li data-type="method" id="ego-isInvalid-nav"><a href="module-ego.html#~isInvalid">isInvalid</a></li><li data-type="method" id="ego-isValid-nav"><a href="module-ego.html#~isValid">isValid</a></li><li data-type="method" id="ego-validate-nav"><a href="module-ego.html#~validate">validate</a></li><li data-type="method" id="ego-validateWithOpts-nav"><a href="module-ego.html#~validateWithOpts">validateWithOpts</a></li></ul></li></ul>
   </nav>
 
   <div id="main">
     
       <h1 class="page-title">
-        validators/number
+        module:ego
       </h1>
     
 
@@ -87,9 +87,7 @@
     
       <h2>
         
-          <span class="ancestors"><a href="module-ego.html">ego</a>~</span>
-        
-        validators/number
+        module:ego
         
       </h2>
 
@@ -135,7 +133,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validators_number.js.html">validators/number.js</a>, <a href="validators_number.js.html#line2">line 2</a>
+          <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line2">line 2</a>
         </li>
       </ul>
     </dd>
@@ -162,6 +160,75 @@
      
 
     
+      <h3 class="subsection-title">Namespaces</h3>
+
+      <dl>
+        
+          <dt>
+            <a href="module-ego-ERROR_KEYS.html">ERROR_KEYS</a>
+          </dt>
+          <dd>
+            
+          </dd>
+        
+          <dt>
+            <a href="module-ego-ERROR_MESSAGES.html">ERROR_MESSAGES</a>
+          </dt>
+          <dd>
+            
+          </dd>
+        
+          <dt>
+            <a href="module-ego-spec.html">spec</a>
+          </dt>
+          <dd>
+            
+          </dd>
+        
+          <dt>
+            <a href="module-ego-validators_any.html">validators/any</a>
+          </dt>
+          <dd>
+            
+          </dd>
+        
+          <dt>
+            <a href="module-ego-validators_array.html">validators/array</a>
+          </dt>
+          <dd>
+            
+          </dd>
+        
+          <dt>
+            <a href="module-ego-validators_boolean.html">validators/boolean</a>
+          </dt>
+          <dd>
+            
+          </dd>
+        
+          <dt>
+            <a href="module-ego-validators_number.html">validators/number</a>
+          </dt>
+          <dd>
+            
+          </dd>
+        
+          <dt>
+            <a href="module-ego-validators_shape.html">validators/shape</a>
+          </dt>
+          <dd>
+            
+          </dd>
+        
+          <dt>
+            <a href="module-ego-validators_string.html">validators/string</a>
+          </dt>
+          <dd>
+            
+          </dd>
+        
+      </dl>
+    
 
     
 
@@ -175,13 +242,13 @@
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.ge">
+    <a class="link-icon" href="#~isInvalid">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".ge">
-      <span class="type-signature">(static) </span>ge<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    <h4 class="name" id="~isInvalid">
+      <span class="type-signature">(inner) </span>isInvalid<span class="signature">(specFn, value)</span><span class="type-signature"> &rarr; {boolean}</span>
     </h4>
   </span>
 
@@ -190,7 +257,7 @@
 
 
   <div class="description">
-    <p>Checks whether value is greater or equal than defined values</p>
+    <p>Curried function tells whether value is invalid</p>
   </div>
 
 
@@ -223,6 +290,37 @@
     
       <tr>
         
+          <td class="name"><code>specFn</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      function
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>generated data spec flow,
+of,
+compose</p>
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
           <td class="name"><code>value</code></td>
         
 
@@ -244,7 +342,7 @@
         
 
         <td class="description last">
-          <p>accepts a number value</p>
+          <p>value to check</p>
           
         </td>
       </tr>
@@ -288,7 +386,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validators_number.js.html">validators/number.js</a>, <a href="validators_number.js.html#line68">line 68</a>
+          <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line118">line 118</a>
         </li>
       </ul>
     </dd>
@@ -314,26 +412,26 @@
 
 
   <div class="example-container">
-    <a class="link-icon" href="#ge-examples">
+    <a class="link-icon" href="#isInvalid-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="ge-examples">Example</h5>
+    <h5 id="isInvalid-examples">Example</h5>
     
 
-  <pre class="prettyprint"><code>import { validators } from 'egoist-js'
+  <pre class="prettyprint"><code>import { isInvalid, spec, validators } from 'egoist-js'
 
-const { number } = validators
+const { string, any } = validators
 
-const greaterEqual = number.ge(3)
+const usernameSpec = spec.flow(string.isString, string.isNotEmpty, any.required)
+console.log(isInvalid(usernameSpec, 'hello')) // false
 
-console.log(greaterEqual(undefined)) // null
-console.log(greaterEqual(null)) // null
-console.log(greaterEqual(4)) // null
-console.log(greaterEqual(3)) // null
-
-console.log(greaterEqual(2)) // ['number.ge', 3]</code></pre>
+const isInvalidUsernameFn = isInvalid(usernameSpec)
+console.log(isInvalidUsernameFn('nope')) // false
+console.log(isInvalidUsernameFn(undefined)) // true
+console.log(isInvalidUsernameFn(null)) // true
+console.log(isInvalidUsernameFn('')) // true</code></pre>
 
 
   </div>
@@ -346,13 +444,13 @@ console.log(greaterEqual(2)) // ['number.ge', 3]</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.gt">
+    <a class="link-icon" href="#~isValid">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".gt">
-      <span class="type-signature">(static) </span>gt<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    <h4 class="name" id="~isValid">
+      <span class="type-signature">(inner) </span>isValid<span class="signature">(specFn, value)</span><span class="type-signature"> &rarr; {boolean}</span>
     </h4>
   </span>
 
@@ -361,7 +459,7 @@ console.log(greaterEqual(2)) // ['number.ge', 3]</code></pre>
 
 
   <div class="description">
-    <p>Checks whether value is greater than defined values</p>
+    <p>Curried function tells whether value is valid</p>
   </div>
 
 
@@ -394,6 +492,37 @@ console.log(greaterEqual(2)) // ['number.ge', 3]</code></pre>
     
       <tr>
         
+          <td class="name"><code>specFn</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      function
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>generated data spec flow,
+of,
+compose</p>
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
           <td class="name"><code>value</code></td>
         
 
@@ -415,7 +544,7 @@ console.log(greaterEqual(2)) // ['number.ge', 3]</code></pre>
         
 
         <td class="description last">
-          <p>accepts a number value</p>
+          <p>value to check</p>
           
         </td>
       </tr>
@@ -459,7 +588,7 @@ console.log(greaterEqual(2)) // ['number.ge', 3]</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validators_number.js.html">validators/number.js</a>, <a href="validators_number.js.html#line42">line 42</a>
+          <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line90">line 90</a>
         </li>
       </ul>
     </dd>
@@ -485,26 +614,26 @@ console.log(greaterEqual(2)) // ['number.ge', 3]</code></pre>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#gt-examples">
+    <a class="link-icon" href="#isValid-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="gt-examples">Example</h5>
+    <h5 id="isValid-examples">Example</h5>
     
 
-  <pre class="prettyprint"><code>import { validators } from 'egoist-js'
+  <pre class="prettyprint"><code>import { isValid, spec, validators } from 'egoist-js'
 
-const { number } = validators
+const { string, any } = validators
 
-const greaterThan = number.gt(3)
+const usernameSpec = spec.flow(string.isString, string.isNotEmpty, any.required)
+console.log(isValid(usernameSpec, 'hello')) // true
 
-console.log(greaterThan(undefined)) // null
-console.log(greaterThan(null)) // null
-console.log(greaterThan(4)) // null
-
-console.log(greaterThan(3)) // ['number.gt', 3]
-console.log(greaterThan(2)) // ['number.gt', 3]</code></pre>
+const isValidUsernameFn = isValid(usernameSpec)
+console.log(isValidUsernameFn('nope')) // true
+console.log(isValidUsernameFn(undefined)) // false
+console.log(isValidUsernameFn(null)) // false
+console.log(isValidUsernameFn('')) // false</code></pre>
 
 
   </div>
@@ -517,13 +646,13 @@ console.log(greaterThan(2)) // ['number.gt', 3]</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.inRange">
+    <a class="link-icon" href="#~validate">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".inRange">
-      <span class="type-signature">(static) </span>inRange<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    <h4 class="name" id="~validate">
+      <span class="type-signature">(inner) </span>validate<span class="signature">(specFn, value)</span><span class="type-signature"> &rarr; {Array.&lt;Object>|Null}</span>
     </h4>
   </span>
 
@@ -532,7 +661,7 @@ console.log(greaterThan(2)) // ['number.gt', 3]</code></pre>
 
 
   <div class="description">
-    <p>Checks whether value is in defined range</p>
+    <p>Curried function returns validation info if data has errors</p>
   </div>
 
 
@@ -565,6 +694,37 @@ console.log(greaterThan(2)) // ['number.gt', 3]</code></pre>
     
       <tr>
         
+          <td class="name"><code>specFn</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      function
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>generated data spec flow,
+of,
+compose</p>
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
           <td class="name"><code>value</code></td>
         
 
@@ -586,7 +746,7 @@ console.log(greaterThan(2)) // ['number.gt', 3]</code></pre>
         
 
         <td class="description last">
-          <p>accepts a number value</p>
+          <p>value to check</p>
           
         </td>
       </tr>
@@ -630,7 +790,7 @@ console.log(greaterThan(2)) // ['number.gt', 3]</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validators_number.js.html">validators/number.js</a>, <a href="validators_number.js.html#line120">line 120</a>
+          <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line146">line 146</a>
         </li>
       </ul>
     </dd>
@@ -656,28 +816,53 @@ console.log(greaterThan(2)) // ['number.gt', 3]</code></pre>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#inRange-examples">
+    <a class="link-icon" href="#validate-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="inRange-examples">Example</h5>
+    <h5 id="validate-examples">Example</h5>
     
 
-  <pre class="prettyprint"><code>import { validators } from 'egoist-js'
+  <pre class="prettyprint"><code>import { validate, spec, validators } from 'egoist-js'
 
-const { number } = validators
+const { shape, number, string, any } = validators
 
-const inRng = number.inRange([2, 5])
+const usernameSpec = spec.flow(string.isString, string.isNotEmpty, any.required)
+console.log(validate(usernameSpec, 'hello')) // null
 
-console.log(inRng(undefined)) // null
-console.log(inRng(null)) // null
-console.log(inRng(2)) // null
-console.log(inRng(3)) // null
-console.log(inRng(4)) // null
+const validateUsername = validate(usernameSpec)
 
-console.log(inRng(5)) // ['number.range', [2, 5]]
-console.log(inRng(6)) // ['number.range', [2, 5]]</code></pre>
+console.log(validateUsername(null)) 
+// [{
+//  message: 'value is required', 
+//  value: null, 
+//  args: undefined, 
+//  path: [] // path is computed property
+// }]
+
+
+const adultUserModelSpec = spec.compose(
+ spec.flow(
+  shape.isShape,
+  shape.hasKeys('name', 'age'),
+  any.required,
+ ),
+ spec.of({
+  name: spec.flow(string.isString, string.isNotEmpty, any.required),
+  age: spec.flow(number.isNumber, number.ge(18), any.required),
+ })
+)
+
+const validateAdultUser = validate(adultUserModelSpec)
+
+const validationResult = validateAdultUser({
+ name: 'Oliver Darkside',
+ age: 17,
+})
+
+console.log(validationResult) 
+// [{ message: 'age should be greater or equal than 18', value: 17, args: 18, path: ['age'] }]</code></pre>
 
 
   </div>
@@ -690,13 +875,13 @@ console.log(inRng(6)) // ['number.range', [2, 5]]</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.isNumber">
+    <a class="link-icon" href="#~validateWithOpts">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".isNumber">
-      <span class="type-signature">(static) </span>isNumber<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    <h4 class="name" id="~validateWithOpts">
+      <span class="type-signature">(inner) </span>validateWithOpts<span class="signature">(specFn, opts, value)</span><span class="type-signature"> &rarr; {Array.&lt;Object>|Null}</span>
     </h4>
   </span>
 
@@ -705,7 +890,7 @@ console.log(inRng(6)) // ['number.range', [2, 5]]</code></pre>
 
 
   <div class="description">
-    <p>Checks whether value is number</p>
+    <p>Curried function with opts, returns validation info if data has errors</p>
   </div>
 
 
@@ -738,6 +923,66 @@ console.log(inRng(6)) // ['number.range', [2, 5]]</code></pre>
     
       <tr>
         
+          <td class="name"><code>specFn</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      function
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>generated data spec flow,
+of,
+compose</p>
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
+          <td class="name"><code>opts</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      Object
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>object with <code>customMessages</code>, pls look at the example below</p>
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
           <td class="name"><code>value</code></td>
         
 
@@ -759,7 +1004,7 @@ console.log(inRng(6)) // ['number.range', [2, 5]]</code></pre>
         
 
         <td class="description last">
-          <p>accepts a number value</p>
+          <p>value to check</p>
           
         </td>
       </tr>
@@ -803,7 +1048,7 @@ console.log(inRng(6)) // ['number.range', [2, 5]]</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validators_number.js.html">validators/number.js</a>, <a href="validators_number.js.html#line148">line 148</a>
+          <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line201">line 201</a>
         </li>
       </ul>
     </dd>
@@ -829,366 +1074,50 @@ console.log(inRng(6)) // ['number.range', [2, 5]]</code></pre>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#isNumber-examples">
+    <a class="link-icon" href="#validateWithOpts-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="isNumber-examples">Example</h5>
+    <h5 id="validateWithOpts-examples">Example</h5>
     
 
-  <pre class="prettyprint"><code>import { validators } from 'egoist-js'
-
-const { number } = validators
-
-console.log(number.isNumber(undefined)) // null
-console.log(number.isNumber(null)) // null
-console.log(number.isNumber(2)) // null
-
-console.log(number.isNumber('5')) // ['number.type']
-console.log(number.isNumber([])) // ['number.type']</code></pre>
-
-
-  </div>
-
-
-      
-        
-
-
-  
-
-  <span class='name-container'>
-    <a class="link-icon" href="#.le">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h4 class="name" id=".le">
-      <span class="type-signature">(static) </span>le<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
-    </h4>
-  </span>
-
-  
-
-
-
-  <div class="description">
-    <p>Checks whether value is lower or equal than defined values</p>
-  </div>
-
-
-
-
-
-
-
-  <h5>Parameters:</h5>
-  
-
-<table class="params">
-  <thead>
-    <tr>
-      
-        <th>Name</th>
-      
-
-      <th>Type</th>
-
-      
-
-      
-
-      <th class="last">Description</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    
-      <tr>
-        
-          <td class="name"><code>value</code></td>
-        
-
-        <td class="type">
-          
-            
-    <span class="param-type">
-      any
-    </span>
-
-    
-
-
-          
-        </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>accepts a number value</p>
-          
-        </td>
-      </tr>
-
-    
-  </tbody>
-</table>
-
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="validators_number.js.html">validators/number.js</a>, <a href="validators_number.js.html#line94">line 94</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="example-container">
-    <a class="link-icon" href="#le-examples">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h5 id="le-examples">Example</h5>
-    
-
-  <pre class="prettyprint"><code>import { validators } from 'egoist-js'
-
-const { number } = validators
-
-const lowerOrEqual = number.le(3)
-
-console.log(lowerOrEqual(undefined)) // null
-console.log(lowerOrEqual(null)) // null
-console.log(lowerOrEqual(2)) // null
-console.log(lowerOrEqual(3)) // null
-
-console.log(lowerOrEqual(4)) // ['number.le', 3]</code></pre>
-
-
-  </div>
-
-
-      
-        
-
-
-  
-
-  <span class='name-container'>
-    <a class="link-icon" href="#.lt">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h4 class="name" id=".lt">
-      <span class="type-signature">(static) </span>lt<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
-    </h4>
-  </span>
-
-  
-
-
-
-  <div class="description">
-    <p>Checks whether value is lower than defined values</p>
-  </div>
-
-
-
-
-
-
-
-  <h5>Parameters:</h5>
-  
-
-<table class="params">
-  <thead>
-    <tr>
-      
-        <th>Name</th>
-      
-
-      <th>Type</th>
-
-      
-
-      
-
-      <th class="last">Description</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    
-      <tr>
-        
-          <td class="name"><code>value</code></td>
-        
-
-        <td class="type">
-          
-            
-    <span class="param-type">
-      any
-    </span>
-
-    
-
-
-          
-        </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>accepts a number value</p>
-          
-        </td>
-      </tr>
-
-    
-  </tbody>
-</table>
-
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="validators_number.js.html">validators/number.js</a>, <a href="validators_number.js.html#line16">line 16</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="example-container">
-    <a class="link-icon" href="#lt-examples">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h5 id="lt-examples">Example</h5>
-    
-
-  <pre class="prettyprint"><code>import { validators } from 'egoist-js'
-
-const { number } = validators
-
-const lowerThan = number.lt(3)
-
-console.log(lowerThan(undefined)) // null
-console.log(lowerThan(null)) // null
-console.log(lowerThan(2)) // null
-
-console.log(lowerThan(3)) // ['number.lt', 3]
-console.log(lowerThan(4)) // ['number.lt', 3]</code></pre>
+  <pre class="prettyprint"><code>import { validateWithOpts, spec, validators, ERROR_KEYS } from 'egoist-js'
+
+const { shape, number, string, any } = validators
+
+const adultUserModelSpec = spec.of({
+  name: spec.flow(string.isString, string.isNotEmpty, any.required),
+  age: spec.flow(number.isNumber, number.ge(18), any.required),
+  address: spec.of({
+   city: spec.flow(string.isString, any.required),
+   street: spec.flow(string.isString, any.required),
+  })
+})
+
+const validateAdultUser = validateWithOpts(adultUserModelSpec, {
+  customMessages: {
+    [ERROR_KEYS.NUMBER.GE]: ({ label, path, value, args }) => 
+       `${label} can not contain [${value}], because expects something greater or equal than ${args}`
+  },
+})
+
+const reasons = validateAdultUser({
+ name: 'Alice Morgan',
+ age: 17,
+ address: {
+   city: 'London',
+   street: 'Fitsrovia st.'
+ }
+})
+
+console.log(reasons) 
+// [{
+//   message: 'age can not contain [17], because expects something greater or equal than 18',
+//   args: 18,
+//   value: 17,
+//   path: ['age'],
+// }]</code></pre>
 
 
   </div>

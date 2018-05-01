@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      validators/array - Documentation
+      validators/number - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -70,13 +70,13 @@
       Ego Validation Library
     </h3>
 
-    <h3>Modules</h3><ul><li id="ego-nav"><a href="module-ego.html">ego</a><ul class='methods'><li data-type="method" id="ego-isInvalid-nav"><a href="module-ego.html#~isInvalid">isInvalid</a></li><li data-type="method" id="ego-isValid-nav"><a href="module-ego.html#~isValid">isValid</a></li><li data-type="method" id="ego-validate-nav"><a href="module-ego.html#~validate">validate</a></li></ul></li></ul>
+    <h3>Modules</h3><ul><li id="ego-nav"><a href="module-ego.html">ego</a><ul class='methods'><li data-type="method" id="ego-isInvalid-nav"><a href="module-ego.html#~isInvalid">isInvalid</a></li><li data-type="method" id="ego-isValid-nav"><a href="module-ego.html#~isValid">isValid</a></li><li data-type="method" id="ego-validate-nav"><a href="module-ego.html#~validate">validate</a></li><li data-type="method" id="ego-validateWithOpts-nav"><a href="module-ego.html#~validateWithOpts">validateWithOpts</a></li></ul></li></ul>
   </nav>
 
   <div id="main">
     
       <h1 class="page-title">
-        validators/array
+        validators/number
       </h1>
     
 
@@ -87,9 +87,9 @@
     
       <h2>
         
-          <span class="ancestors"><a href="module-ego.html">ego</a>~</span>
+          <span class="ancestors"><a href="module-ego.html">module:ego</a>~</span>
         
-        validators/array
+        validators/number
         
       </h2>
 
@@ -135,7 +135,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validators_array.js.html">validators/array.js</a>, <a href="validators_array.js.html#line2">line 2</a>
+          <a href="validators_number.js.html">validators/number.js</a>, <a href="validators_number.js.html#line2">line 2</a>
         </li>
       </ul>
     </dd>
@@ -175,13 +175,13 @@
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.every">
+    <a class="link-icon" href="#.ge">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".every">
-      <span class="type-signature">(static) </span>every<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;string>|null}</span>
+    <h4 class="name" id=".ge">
+      <span class="type-signature">(static) </span>ge<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
     </h4>
   </span>
 
@@ -190,7 +190,7 @@
 
 
   <div class="description">
-    <p>Checks whether each item of collection follows a predicate rule</p>
+    <p>Checks whether value is greater or equal than defined values</p>
   </div>
 
 
@@ -244,7 +244,7 @@
         
 
         <td class="description last">
-          <p>accepts an array of any type values</p>
+          <p>accepts a number value</p>
           
         </td>
       </tr>
@@ -288,7 +288,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validators_array.js.html">validators/array.js</a>, <a href="validators_array.js.html#line69">line 69</a>
+          <a href="validators_number.js.html">validators/number.js</a>, <a href="validators_number.js.html#line68">line 68</a>
         </li>
       </ul>
     </dd>
@@ -314,26 +314,197 @@
 
 
   <div class="example-container">
-    <a class="link-icon" href="#every-examples">
+    <a class="link-icon" href="#ge-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="every-examples">Example</h5>
+    <h5 id="ge-examples">Example</h5>
     
 
   <pre class="prettyprint"><code>import { validators } from 'egoist-js'
 
-const { array } = validators
+const { number } = validators
 
-const onlyNumbers = array.every(value => typeof(value === 'number'))
+const greaterEqual = number.ge(3)
 
-console.log(onlyNumbers(undefined)) // null
-console.log(onlyNumbers(null)) // null
-console.log(onlyNumbers([1, 2, 3, 4, 5])) // null
+console.log(greaterEqual(undefined)) // null
+console.log(greaterEqual(null)) // null
+console.log(greaterEqual(4)) // null
+console.log(greaterEqual(3)) // null
 
-console.log(onlyNumbers(['1', '2', '3'])) // ['array.every']
-console.log(onlyNumbers([1, 2, null, 4, 5])) // ['array.every']</code></pre>
+console.log(greaterEqual(2)) // ['number.ge', 3]</code></pre>
+
+
+  </div>
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#.gt">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id=".gt">
+      <span class="type-signature">(static) </span>gt<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    <p>Checks whether value is greater than defined values</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>value</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      any
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>accepts a number value</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="validators_number.js.html">validators/number.js</a>, <a href="validators_number.js.html#line42">line 42</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="example-container">
+    <a class="link-icon" href="#gt-examples">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h5 id="gt-examples">Example</h5>
+    
+
+  <pre class="prettyprint"><code>import { validators } from 'egoist-js'
+
+const { number } = validators
+
+const greaterThan = number.gt(3)
+
+console.log(greaterThan(undefined)) // null
+console.log(greaterThan(null)) // null
+console.log(greaterThan(4)) // null
+
+console.log(greaterThan(3)) // ['number.gt', 3]
+console.log(greaterThan(2)) // ['number.gt', 3]</code></pre>
 
 
   </div>
@@ -361,7 +532,7 @@ console.log(onlyNumbers([1, 2, null, 4, 5])) // ['array.every']</code></pre>
 
 
   <div class="description">
-    <p>Checks whether an array contains desired number of items</p>
+    <p>Checks whether value is in defined range</p>
   </div>
 
 
@@ -415,7 +586,7 @@ console.log(onlyNumbers([1, 2, null, 4, 5])) // ['array.every']</code></pre>
         
 
         <td class="description last">
-          <p>accepts an array of any type values</p>
+          <p>accepts a number value</p>
           
         </td>
       </tr>
@@ -459,7 +630,7 @@ console.log(onlyNumbers([1, 2, null, 4, 5])) // ['array.every']</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validators_array.js.html">validators/array.js</a>, <a href="validators_array.js.html#line94">line 94</a>
+          <a href="validators_number.js.html">validators/number.js</a>, <a href="validators_number.js.html#line120">line 120</a>
         </li>
       </ul>
     </dd>
@@ -495,18 +666,18 @@ console.log(onlyNumbers([1, 2, null, 4, 5])) // ['array.every']</code></pre>
 
   <pre class="prettyprint"><code>import { validators } from 'egoist-js'
 
-const { array } = validators
+const { number } = validators
 
-const between5and10 = array.inRange([3, 5])
+const inRng = number.inRange([2, 5])
 
-console.log(between5and10(undefined)) // null
-console.log(between5and10(null)) // null
-console.log(between5and10([1, 2, 3, 4, 5])) // null
-console.log(between5and10([1, 2, 3, 4])) // null
-console.log(between5and10([1, 2, 3])) // null
+console.log(inRng(undefined)) // null
+console.log(inRng(null)) // null
+console.log(inRng(2)) // null
+console.log(inRng(3)) // null
+console.log(inRng(4)) // null
 
-console.log(between5and10([1, 2, 3, 4, 5, 6])) // ['array.range', [3, 5]]
-console.log(between5and10([1, 2])) // ['array.range', [3, 5]]</code></pre>
+console.log(inRng(5)) // ['number.range', [2, 5]]
+console.log(inRng(6)) // ['number.range', [2, 5]]</code></pre>
 
 
   </div>
@@ -519,178 +690,13 @@ console.log(between5and10([1, 2])) // ['array.range', [3, 5]]</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.isArray">
+    <a class="link-icon" href="#.isNumber">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".isArray">
-      <span class="type-signature">(static) </span>isArray<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;string>|null}</span>
-    </h4>
-  </span>
-
-  
-
-
-
-
-
-
-
-
-
-  <h5>Parameters:</h5>
-  
-
-<table class="params">
-  <thead>
-    <tr>
-      
-        <th>Name</th>
-      
-
-      <th>Type</th>
-
-      
-
-      
-
-      <th class="last">Description</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    
-      <tr>
-        
-          <td class="name"><code>value</code></td>
-        
-
-        <td class="type">
-          
-            
-    <span class="param-type">
-      any
-    </span>
-
-    
-
-
-          
-        </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>any possible value</p>
-          
-        </td>
-      </tr>
-
-    
-  </tbody>
-</table>
-
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="validators_array.js.html">validators/array.js</a>, <a href="validators_array.js.html#line22">line 22</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="example-container">
-    <a class="link-icon" href="#isArray-examples">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h5 id="isArray-examples">Example</h5>
-    
-
-  <pre class="prettyprint"><code>import { validators } from 'egoist-js'
-
-const { array } = validators
-
-console.log(array.isArray(undefined)) // null
-console.log(array.isArray(null)) // null
-console.log(array.isArray([1, 2])) // null
-console.log(array.isArray([])) // null
-
-console.log(array.isArray(1)) // ['array.type']</code></pre>
-
-
-  </div>
-
-
-      
-        
-
-
-  
-
-  <span class='name-container'>
-    <a class="link-icon" href="#.length">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h4 class="name" id=".length">
-      <span class="type-signature">(static) </span>length<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    <h4 class="name" id=".isNumber">
+      <span class="type-signature">(static) </span>isNumber<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
     </h4>
   </span>
 
@@ -699,7 +705,7 @@ console.log(array.isArray(1)) // ['array.type']</code></pre>
 
 
   <div class="description">
-    <p>Checks whether an array has exact length</p>
+    <p>Checks whether value is number</p>
   </div>
 
 
@@ -753,7 +759,7 @@ console.log(array.isArray(1)) // ['array.type']</code></pre>
         
 
         <td class="description last">
-          <p>accepts an array of any type values</p>
+          <p>accepts a number value</p>
           
         </td>
       </tr>
@@ -797,7 +803,7 @@ console.log(array.isArray(1)) // ['array.type']</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validators_array.js.html">validators/array.js</a>, <a href="validators_array.js.html#line173">line 173</a>
+          <a href="validators_number.js.html">validators/number.js</a>, <a href="validators_number.js.html#line148">line 148</a>
         </li>
       </ul>
     </dd>
@@ -823,26 +829,24 @@ console.log(array.isArray(1)) // ['array.type']</code></pre>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#length-examples">
+    <a class="link-icon" href="#isNumber-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="length-examples">Example</h5>
+    <h5 id="isNumber-examples">Example</h5>
     
 
   <pre class="prettyprint"><code>import { validators } from 'egoist-js'
 
-const { array } = validators
+const { number } = validators
 
-const exlength3 = array.length(3)
+console.log(number.isNumber(undefined)) // null
+console.log(number.isNumber(null)) // null
+console.log(number.isNumber(2)) // null
 
-console.log(exlength3(undefined)) // null
-console.log(exlength3(null)) // null
-console.log(exlength3([1, 2, 3])) // null
-
-console.log(exlength3([1, 2, 3, 4, 5])) // ['array.exact.length', 3]
-console.log(exlength3([1, 2])) // ['array.exact.length', 3]</code></pre>
+console.log(number.isNumber('5')) // ['number.type']
+console.log(number.isNumber([])) // ['number.type']</code></pre>
 
 
   </div>
@@ -855,13 +859,13 @@ console.log(exlength3([1, 2])) // ['array.exact.length', 3]</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.maxLength">
+    <a class="link-icon" href="#.le">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".maxLength">
-      <span class="type-signature">(static) </span>maxLength<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    <h4 class="name" id=".le">
+      <span class="type-signature">(static) </span>le<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
     </h4>
   </span>
 
@@ -870,7 +874,7 @@ console.log(exlength3([1, 2])) // ['array.exact.length', 3]</code></pre>
 
 
   <div class="description">
-    <p>Checks whether an array has at most defined number of items</p>
+    <p>Checks whether value is lower or equal than defined values</p>
   </div>
 
 
@@ -924,7 +928,7 @@ console.log(exlength3([1, 2])) // ['array.exact.length', 3]</code></pre>
         
 
         <td class="description last">
-          <p>accepts an array of any type values</p>
+          <p>accepts a number value</p>
           
         </td>
       </tr>
@@ -968,7 +972,7 @@ console.log(exlength3([1, 2])) // ['array.exact.length', 3]</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validators_array.js.html">validators/array.js</a>, <a href="validators_array.js.html#line147">line 147</a>
+          <a href="validators_number.js.html">validators/number.js</a>, <a href="validators_number.js.html#line94">line 94</a>
         </li>
       </ul>
     </dd>
@@ -994,26 +998,26 @@ console.log(exlength3([1, 2])) // ['array.exact.length', 3]</code></pre>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#maxLength-examples">
+    <a class="link-icon" href="#le-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="maxLength-examples">Example</h5>
+    <h5 id="le-examples">Example</h5>
     
 
   <pre class="prettyprint"><code>import { validators } from 'egoist-js'
 
-const { array } = validators
+const { number } = validators
 
-const maxLength3 = array.maxLength(3)
+const lowerOrEqual = number.le(3)
 
-console.log(maxLength3(undefined)) // null
-console.log(maxLength3(null)) // null
-console.log(maxLength3([1, 2, 3])) // null
+console.log(lowerOrEqual(undefined)) // null
+console.log(lowerOrEqual(null)) // null
+console.log(lowerOrEqual(2)) // null
+console.log(lowerOrEqual(3)) // null
 
-console.log(maxLength3([1, 2, 3, 4, 5])) // ['array.max.length', 3]
-console.log(maxLength3([1, 2, 3, 4])) // ['array.max.length', 3]</code></pre>
+console.log(lowerOrEqual(4)) // ['number.le', 3]</code></pre>
 
 
   </div>
@@ -1026,13 +1030,13 @@ console.log(maxLength3([1, 2, 3, 4])) // ['array.max.length', 3]</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.minLength">
+    <a class="link-icon" href="#.lt">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".minLength">
-      <span class="type-signature">(static) </span>minLength<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    <h4 class="name" id=".lt">
+      <span class="type-signature">(static) </span>lt<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
     </h4>
   </span>
 
@@ -1041,7 +1045,7 @@ console.log(maxLength3([1, 2, 3, 4])) // ['array.max.length', 3]</code></pre>
 
 
   <div class="description">
-    <p>Checks whether an array has at least defined number of items</p>
+    <p>Checks whether value is lower than defined values</p>
   </div>
 
 
@@ -1095,7 +1099,7 @@ console.log(maxLength3([1, 2, 3, 4])) // ['array.max.length', 3]</code></pre>
         
 
         <td class="description last">
-          <p>accepts an array of any type values</p>
+          <p>accepts a number value</p>
           
         </td>
       </tr>
@@ -1139,7 +1143,7 @@ console.log(maxLength3([1, 2, 3, 4])) // ['array.max.length', 3]</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validators_array.js.html">validators/array.js</a>, <a href="validators_array.js.html#line121">line 121</a>
+          <a href="validators_number.js.html">validators/number.js</a>, <a href="validators_number.js.html#line16">line 16</a>
         </li>
       </ul>
     </dd>
@@ -1165,197 +1169,26 @@ console.log(maxLength3([1, 2, 3, 4])) // ['array.max.length', 3]</code></pre>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#minLength-examples">
+    <a class="link-icon" href="#lt-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="minLength-examples">Example</h5>
+    <h5 id="lt-examples">Example</h5>
     
 
   <pre class="prettyprint"><code>import { validators } from 'egoist-js'
 
-const { array } = validators
+const { number } = validators
 
-const minLength3 = array.minLength(3)
+const lowerThan = number.lt(3)
 
-console.log(minLength3(undefined)) // null
-console.log(minLength3(null)) // null
-console.log(minLength3([1, 2, 3, 4, 5])) // null
-console.log(minLength3([1, 2, 3, 4])) // null
-console.log(minLength3([1, 2, 3])) // null
+console.log(lowerThan(undefined)) // null
+console.log(lowerThan(null)) // null
+console.log(lowerThan(2)) // null
 
-console.log(minLength3([1, 2])) // ['array.min.length', 3]</code></pre>
-
-
-  </div>
-
-
-      
-        
-
-
-  
-
-  <span class='name-container'>
-    <a class="link-icon" href="#.some">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h4 class="name" id=".some">
-      <span class="type-signature">(static) </span>some<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;string>|null}</span>
-    </h4>
-  </span>
-
-  
-
-
-
-  <div class="description">
-    <p>Checks whether at least one item of collection follows a predicate rule</p>
-  </div>
-
-
-
-
-
-
-
-  <h5>Parameters:</h5>
-  
-
-<table class="params">
-  <thead>
-    <tr>
-      
-        <th>Name</th>
-      
-
-      <th>Type</th>
-
-      
-
-      
-
-      <th class="last">Description</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    
-      <tr>
-        
-          <td class="name"><code>value</code></td>
-        
-
-        <td class="type">
-          
-            
-    <span class="param-type">
-      any
-    </span>
-
-    
-
-
-          
-        </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>accepts an array of any type values</p>
-          
-        </td>
-      </tr>
-
-    
-  </tbody>
-</table>
-
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="validators_array.js.html">validators/array.js</a>, <a href="validators_array.js.html#line45">line 45</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="example-container">
-    <a class="link-icon" href="#some-examples">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h5 id="some-examples">Example</h5>
-    
-
-  <pre class="prettyprint"><code>import { validators } from 'egoist-js'
-
-const { array } = validators
-
-const hasEvenValue = array.some(value => value % 2 === 0)
-
-console.log(hasEvenValue(undefined)) // null
-console.log(hasEvenValue(null)) // null
-console.log(hasEvenValue([1, 2, 3])) // null
-
-console.log(hasEvenValue([1, 3])) // ['array.some']</code></pre>
+console.log(lowerThan(3)) // ['number.lt', 3]
+console.log(lowerThan(4)) // ['number.lt', 3]</code></pre>
 
 
   </div>

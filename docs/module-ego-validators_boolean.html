@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      validators/any - Documentation
+      validators/boolean - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -70,13 +70,13 @@
       Ego Validation Library
     </h3>
 
-    <h3>Modules</h3><ul><li id="ego-nav"><a href="module-ego.html">ego</a><ul class='methods'><li data-type="method" id="ego-isInvalid-nav"><a href="module-ego.html#~isInvalid">isInvalid</a></li><li data-type="method" id="ego-isValid-nav"><a href="module-ego.html#~isValid">isValid</a></li><li data-type="method" id="ego-validate-nav"><a href="module-ego.html#~validate">validate</a></li></ul></li></ul>
+    <h3>Modules</h3><ul><li id="ego-nav"><a href="module-ego.html">ego</a><ul class='methods'><li data-type="method" id="ego-isInvalid-nav"><a href="module-ego.html#~isInvalid">isInvalid</a></li><li data-type="method" id="ego-isValid-nav"><a href="module-ego.html#~isValid">isValid</a></li><li data-type="method" id="ego-validate-nav"><a href="module-ego.html#~validate">validate</a></li><li data-type="method" id="ego-validateWithOpts-nav"><a href="module-ego.html#~validateWithOpts">validateWithOpts</a></li></ul></li></ul>
   </nav>
 
   <div id="main">
     
       <h1 class="page-title">
-        validators/any
+        validators/boolean
       </h1>
     
 
@@ -87,9 +87,9 @@
     
       <h2>
         
-          <span class="ancestors"><a href="module-ego.html">ego</a>~</span>
+          <span class="ancestors"><a href="module-ego.html">module:ego</a>~</span>
         
-        validators/any
+        validators/boolean
         
       </h2>
 
@@ -135,7 +135,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validators_any.js.html">validators/any.js</a>, <a href="validators_any.js.html#line2">line 2</a>
+          <a href="validators_boolean.js.html">validators/boolean.js</a>, <a href="validators_boolean.js.html#line2">line 2</a>
         </li>
       </ul>
     </dd>
@@ -175,23 +175,19 @@
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.allow">
+    <a class="link-icon" href="#.isBoolean">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".allow">
-      <span class="type-signature">(static) </span>allow<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    <h4 class="name" id=".isBoolean">
+      <span class="type-signature">(static) </span>isBoolean<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;string>|null}</span>
     </h4>
   </span>
 
   
 
 
-
-  <div class="description">
-    <p>Checks whether value is related to one of expected values</p>
-  </div>
 
 
 
@@ -288,7 +284,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validators_any.js.html">validators/any.js</a>, <a href="validators_any.js.html#line37">line 37</a>
+          <a href="validators_boolean.js.html">validators/boolean.js</a>, <a href="validators_boolean.js.html#line11">line 11</a>
         </li>
       </ul>
     </dd>
@@ -314,191 +310,24 @@
 
 
   <div class="example-container">
-    <a class="link-icon" href="#allow-examples">
+    <a class="link-icon" href="#isBoolean-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="allow-examples">Example</h5>
+    <h5 id="isBoolean-examples">Example</h5>
     
 
   <pre class="prettyprint"><code>import { validators } from 'egoist-js'
 
-const { any } = validators
-const isHelloOrWorld = any.allow(['hello', 'world'])
+const { boolean } = validators
 
-console.log(isHelloOrWorld(undefined)) // null
-console.log(isHelloOrWorld(null)) // null
-console.log(isHelloOrWorld('hello')) // null
-console.log(isHelloOrWorld('world')) // null
+console.log(boolean.isBoolean(undefined)) // null
+console.log(boolean.isBoolean(null)) // null
+console.log(boolean.isBoolean(true)) // null
+console.log(boolean.isBoolean([])) // null
 
-console.log(isHelloOrWorld('cosmic')) // ['any.allow', ['hello', 'world']]</code></pre>
-
-
-  </div>
-
-
-      
-        
-
-
-  
-
-  <span class='name-container'>
-    <a class="link-icon" href="#.required">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h4 class="name" id=".required">
-      <span class="type-signature">(static) </span>required<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;string>|null}</span>
-    </h4>
-  </span>
-
-  
-
-
-
-  <div class="description">
-    <p>Checks whether value is null/undefined</p>
-  </div>
-
-
-
-
-
-
-
-  <h5>Parameters:</h5>
-  
-
-<table class="params">
-  <thead>
-    <tr>
-      
-        <th>Name</th>
-      
-
-      <th>Type</th>
-
-      
-
-      
-
-      <th class="last">Description</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    
-      <tr>
-        
-          <td class="name"><code>value</code></td>
-        
-
-        <td class="type">
-          
-            
-    <span class="param-type">
-      any
-    </span>
-
-    
-
-
-          
-        </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>any possible value</p>
-          
-        </td>
-      </tr>
-
-    
-  </tbody>
-</table>
-
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="validators_any.js.html">validators/any.js</a>, <a href="validators_any.js.html#line16">line 16</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="example-container">
-    <a class="link-icon" href="#required-examples">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h5 id="required-examples">Example</h5>
-    
-
-  <pre class="prettyprint"><code>import { validators } from 'egoist-js'
-
-const { any } = validators
-
-console.log(any.required(undefined)) // ['any.required']
-console.log(any.required(null)) // ['any.required']
-console.log(any.required('')) // null</code></pre>
+console.log(boolean.isBoolean(1)) // ['boolean.type']</code></pre>
 
 
   </div>

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      validators/string - Documentation
+      validators/array - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -70,13 +70,13 @@
       Ego Validation Library
     </h3>
 
-    <h3>Modules</h3><ul><li id="ego-nav"><a href="module-ego.html">ego</a><ul class='methods'><li data-type="method" id="ego-isInvalid-nav"><a href="module-ego.html#~isInvalid">isInvalid</a></li><li data-type="method" id="ego-isValid-nav"><a href="module-ego.html#~isValid">isValid</a></li><li data-type="method" id="ego-validate-nav"><a href="module-ego.html#~validate">validate</a></li></ul></li></ul>
+    <h3>Modules</h3><ul><li id="ego-nav"><a href="module-ego.html">ego</a><ul class='methods'><li data-type="method" id="ego-isInvalid-nav"><a href="module-ego.html#~isInvalid">isInvalid</a></li><li data-type="method" id="ego-isValid-nav"><a href="module-ego.html#~isValid">isValid</a></li><li data-type="method" id="ego-validate-nav"><a href="module-ego.html#~validate">validate</a></li><li data-type="method" id="ego-validateWithOpts-nav"><a href="module-ego.html#~validateWithOpts">validateWithOpts</a></li></ul></li></ul>
   </nav>
 
   <div id="main">
     
       <h1 class="page-title">
-        validators/string
+        validators/array
       </h1>
     
 
@@ -87,9 +87,9 @@
     
       <h2>
         
-          <span class="ancestors"><a href="module-ego.html">ego</a>~</span>
+          <span class="ancestors"><a href="module-ego.html">module:ego</a>~</span>
         
-        validators/string
+        validators/array
         
       </h2>
 
@@ -135,7 +135,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validators_string.js.html">validators/string.js</a>, <a href="validators_string.js.html#line2">line 2</a>
+          <a href="validators_array.js.html">validators/array.js</a>, <a href="validators_array.js.html#line2">line 2</a>
         </li>
       </ul>
     </dd>
@@ -175,13 +175,13 @@
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.isAlphanum">
+    <a class="link-icon" href="#.every">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".isAlphanum">
-      <span class="type-signature">(static) </span>isAlphanum<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    <h4 class="name" id=".every">
+      <span class="type-signature">(static) </span>every<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;string>|null}</span>
     </h4>
   </span>
 
@@ -190,7 +190,7 @@
 
 
   <div class="description">
-    <p>Checks whether value contains only alphanumeric characters</p>
+    <p>Checks whether each item of collection follows a predicate rule</p>
   </div>
 
 
@@ -244,7 +244,7 @@
         
 
         <td class="description last">
-          <p>accepts string</p>
+          <p>accepts an array of any type values</p>
           
         </td>
       </tr>
@@ -288,7 +288,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validators_string.js.html">validators/string.js</a>, <a href="validators_string.js.html#line120">line 120</a>
+          <a href="validators_array.js.html">validators/array.js</a>, <a href="validators_array.js.html#line69">line 69</a>
         </li>
       </ul>
     </dd>
@@ -314,27 +314,26 @@
 
 
   <div class="example-container">
-    <a class="link-icon" href="#isAlphanum-examples">
+    <a class="link-icon" href="#every-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="isAlphanum-examples">Example</h5>
+    <h5 id="every-examples">Example</h5>
     
 
   <pre class="prettyprint"><code>import { validators } from 'egoist-js'
 
-const { string } = validators
+const { array } = validators
 
-console.log(string.isAlphanum(undefined)) // null
-console.log(string.isAlphanum(null)) // null
-console.log(string.isAlphanum('abcd')) // null
-console.log(string.isAlphanum('abcd192')) // null
-console.log(string.isAlphanum('12abcd192')) // null
-console.log(string.isAlphanum('192')) // null
+const onlyNumbers = array.every(value => typeof(value === 'number'))
 
-console.log(string.isAlphanum('email@address')) // ['string.alphanum']
-console.log(string.isAlphanum('email@')) // ['string.alphanum']</code></pre>
+console.log(onlyNumbers(undefined)) // null
+console.log(onlyNumbers(null)) // null
+console.log(onlyNumbers([1, 2, 3, 4, 5])) // null
+
+console.log(onlyNumbers(['1', '2', '3'])) // ['array.every']
+console.log(onlyNumbers([1, 2, null, 4, 5])) // ['array.every']</code></pre>
 
 
   </div>
@@ -347,13 +346,13 @@ console.log(string.isAlphanum('email@')) // ['string.alphanum']</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.isDigits">
+    <a class="link-icon" href="#.inRange">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".isDigits">
-      <span class="type-signature">(static) </span>isDigits<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    <h4 class="name" id=".inRange">
+      <span class="type-signature">(static) </span>inRange<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
     </h4>
   </span>
 
@@ -362,7 +361,7 @@ console.log(string.isAlphanum('email@')) // ['string.alphanum']</code></pre>
 
 
   <div class="description">
-    <p>Checks whether value contains only digits</p>
+    <p>Checks whether an array contains desired number of items</p>
   </div>
 
 
@@ -416,7 +415,7 @@ console.log(string.isAlphanum('email@')) // ['string.alphanum']</code></pre>
         
 
         <td class="description last">
-          <p>accepts string</p>
+          <p>accepts an array of any type values</p>
           
         </td>
       </tr>
@@ -460,7 +459,7 @@ console.log(string.isAlphanum('email@')) // ['string.alphanum']</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validators_string.js.html">validators/string.js</a>, <a href="validators_string.js.html#line96">line 96</a>
+          <a href="validators_array.js.html">validators/array.js</a>, <a href="validators_array.js.html#line94">line 94</a>
         </li>
       </ul>
     </dd>
@@ -486,24 +485,28 @@ console.log(string.isAlphanum('email@')) // ['string.alphanum']</code></pre>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#isDigits-examples">
+    <a class="link-icon" href="#inRange-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="isDigits-examples">Example</h5>
+    <h5 id="inRange-examples">Example</h5>
     
 
   <pre class="prettyprint"><code>import { validators } from 'egoist-js'
 
-const { string } = validators
+const { array } = validators
 
-console.log(string.isDigits(undefined)) // null
-console.log(string.isDigits(null)) // null
-console.log(string.isDigits('1991')) // null
+const between5and10 = array.inRange([3, 5])
 
-console.log(string.isDigits('email@address')) // ['string.digits']
-console.log(string.isDigits('email@')) // ['string.digits']</code></pre>
+console.log(between5and10(undefined)) // null
+console.log(between5and10(null)) // null
+console.log(between5and10([1, 2, 3, 4, 5])) // null
+console.log(between5and10([1, 2, 3, 4])) // null
+console.log(between5and10([1, 2, 3])) // null
+
+console.log(between5and10([1, 2, 3, 4, 5, 6])) // ['array.range', [3, 5]]
+console.log(between5and10([1, 2])) // ['array.range', [3, 5]]</code></pre>
 
 
   </div>
@@ -516,23 +519,19 @@ console.log(string.isDigits('email@')) // ['string.digits']</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.isEmail">
+    <a class="link-icon" href="#.isArray">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".isEmail">
-      <span class="type-signature">(static) </span>isEmail<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    <h4 class="name" id=".isArray">
+      <span class="type-signature">(static) </span>isArray<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;string>|null}</span>
     </h4>
   </span>
 
   
 
 
-
-  <div class="description">
-    <p>Checks whether value is valid email address</p>
-  </div>
 
 
 
@@ -585,7 +584,7 @@ console.log(string.isDigits('email@')) // ['string.digits']</code></pre>
         
 
         <td class="description last">
-          <p>accepts string</p>
+          <p>any possible value</p>
           
         </td>
       </tr>
@@ -629,7 +628,7 @@ console.log(string.isDigits('email@')) // ['string.digits']</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validators_string.js.html">validators/string.js</a>, <a href="validators_string.js.html#line72">line 72</a>
+          <a href="validators_array.js.html">validators/array.js</a>, <a href="validators_array.js.html#line22">line 22</a>
         </li>
       </ul>
     </dd>
@@ -655,24 +654,24 @@ console.log(string.isDigits('email@')) // ['string.digits']</code></pre>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#isEmail-examples">
+    <a class="link-icon" href="#isArray-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="isEmail-examples">Example</h5>
+    <h5 id="isArray-examples">Example</h5>
     
 
   <pre class="prettyprint"><code>import { validators } from 'egoist-js'
 
-const { string } = validators
+const { array } = validators
 
-console.log(string.isEmail(undefined)) // null
-console.log(string.isEmail(null)) // null
-console.log(string.isEmail('email@address.com')) // null
+console.log(array.isArray(undefined)) // null
+console.log(array.isArray(null)) // null
+console.log(array.isArray([1, 2])) // null
+console.log(array.isArray([])) // null
 
-console.log(string.isEmail('email@address')) // ['string.email']
-console.log(string.isEmail('email@')) // ['string.email']</code></pre>
+console.log(array.isArray(1)) // ['array.type']</code></pre>
 
 
   </div>
@@ -685,13 +684,13 @@ console.log(string.isEmail('email@')) // ['string.email']</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.isISODate">
+    <a class="link-icon" href="#.length">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".isISODate">
-      <span class="type-signature">(static) </span>isISODate<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    <h4 class="name" id=".length">
+      <span class="type-signature">(static) </span>length<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
     </h4>
   </span>
 
@@ -700,7 +699,7 @@ console.log(string.isEmail('email@')) // ['string.email']</code></pre>
 
 
   <div class="description">
-    <p>Checks whether value is iso date string</p>
+    <p>Checks whether an array has exact length</p>
   </div>
 
 
@@ -754,7 +753,7 @@ console.log(string.isEmail('email@')) // ['string.email']</code></pre>
         
 
         <td class="description last">
-          <p>accepts string</p>
+          <p>accepts an array of any type values</p>
           
         </td>
       </tr>
@@ -798,7 +797,7 @@ console.log(string.isEmail('email@')) // ['string.email']</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validators_string.js.html">validators/string.js</a>, <a href="validators_string.js.html#line147">line 147</a>
+          <a href="validators_array.js.html">validators/array.js</a>, <a href="validators_array.js.html#line173">line 173</a>
         </li>
       </ul>
     </dd>
@@ -824,24 +823,26 @@ console.log(string.isEmail('email@')) // ['string.email']</code></pre>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#isISODate-examples">
+    <a class="link-icon" href="#length-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="isISODate-examples">Example</h5>
+    <h5 id="length-examples">Example</h5>
     
 
   <pre class="prettyprint"><code>import { validators } from 'egoist-js'
 
-const { string } = validators
+const { array } = validators
 
-console.log(string.isISODate(undefined)) // null
-console.log(string.isISODate(null)) // null
-console.log(string.isISODate('2018-05-01T09:31:21.156Z')) // null
+const exlength3 = array.length(3)
 
-console.log(string.isISODate('Tue May 01 2018 12:29:30 GMT+0300 (+03)')) // ['string.iso.date']
-console.log(string.isISODate('email@')) // ['string.iso.date']</code></pre>
+console.log(exlength3(undefined)) // null
+console.log(exlength3(null)) // null
+console.log(exlength3([1, 2, 3])) // null
+
+console.log(exlength3([1, 2, 3, 4, 5])) // ['array.exact.length', 3]
+console.log(exlength3([1, 2])) // ['array.exact.length', 3]</code></pre>
 
 
   </div>
@@ -854,13 +855,13 @@ console.log(string.isISODate('email@')) // ['string.iso.date']</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.isNotEmpty">
+    <a class="link-icon" href="#.maxLength">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".isNotEmpty">
-      <span class="type-signature">(static) </span>isNotEmpty<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    <h4 class="name" id=".maxLength">
+      <span class="type-signature">(static) </span>maxLength<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
     </h4>
   </span>
 
@@ -869,7 +870,7 @@ console.log(string.isISODate('email@')) // ['string.iso.date']</code></pre>
 
 
   <div class="description">
-    <p>Checks whether value is empty string</p>
+    <p>Checks whether an array has at most defined number of items</p>
   </div>
 
 
@@ -923,7 +924,7 @@ console.log(string.isISODate('email@')) // ['string.iso.date']</code></pre>
         
 
         <td class="description last">
-          <p>accepts string</p>
+          <p>accepts an array of any type values</p>
           
         </td>
       </tr>
@@ -967,7 +968,7 @@ console.log(string.isISODate('email@')) // ['string.iso.date']</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validators_string.js.html">validators/string.js</a>, <a href="validators_string.js.html#line49">line 49</a>
+          <a href="validators_array.js.html">validators/array.js</a>, <a href="validators_array.js.html#line147">line 147</a>
         </li>
       </ul>
     </dd>
@@ -993,23 +994,26 @@ console.log(string.isISODate('email@')) // ['string.iso.date']</code></pre>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#isNotEmpty-examples">
+    <a class="link-icon" href="#maxLength-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="isNotEmpty-examples">Example</h5>
+    <h5 id="maxLength-examples">Example</h5>
     
 
   <pre class="prettyprint"><code>import { validators } from 'egoist-js'
 
-const { string } = validators
+const { array } = validators
 
-console.log(string.isNotEmpty(undefined)) // null
-console.log(string.isNotEmpty(null)) // null
-console.log(string.isNotEmpty('-\/-')) // null
+const maxLength3 = array.maxLength(3)
 
-console.log(string.isNotEmpty('')) // ['string.empty']</code></pre>
+console.log(maxLength3(undefined)) // null
+console.log(maxLength3(null)) // null
+console.log(maxLength3([1, 2, 3])) // null
+
+console.log(maxLength3([1, 2, 3, 4, 5])) // ['array.max.length', 3]
+console.log(maxLength3([1, 2, 3, 4])) // ['array.max.length', 3]</code></pre>
 
 
   </div>
@@ -1022,13 +1026,13 @@ console.log(string.isNotEmpty('')) // ['string.empty']</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.isString">
+    <a class="link-icon" href="#.minLength">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".isString">
-      <span class="type-signature">(static) </span>isString<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    <h4 class="name" id=".minLength">
+      <span class="type-signature">(static) </span>minLength<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
     </h4>
   </span>
 
@@ -1037,7 +1041,7 @@ console.log(string.isNotEmpty('')) // ['string.empty']</code></pre>
 
 
   <div class="description">
-    <p>Checks whether value is string</p>
+    <p>Checks whether an array has at least defined number of items</p>
   </div>
 
 
@@ -1091,7 +1095,7 @@ console.log(string.isNotEmpty('')) // ['string.empty']</code></pre>
         
 
         <td class="description last">
-          <p>accepts any value</p>
+          <p>accepts an array of any type values</p>
           
         </td>
       </tr>
@@ -1135,7 +1139,7 @@ console.log(string.isNotEmpty('')) // ['string.empty']</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validators_string.js.html">validators/string.js</a>, <a href="validators_string.js.html#line24">line 24</a>
+          <a href="validators_array.js.html">validators/array.js</a>, <a href="validators_array.js.html#line121">line 121</a>
         </li>
       </ul>
     </dd>
@@ -1161,25 +1165,27 @@ console.log(string.isNotEmpty('')) // ['string.empty']</code></pre>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#isString-examples">
+    <a class="link-icon" href="#minLength-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="isString-examples">Example</h5>
+    <h5 id="minLength-examples">Example</h5>
     
 
   <pre class="prettyprint"><code>import { validators } from 'egoist-js'
 
-const { string } = validators
+const { array } = validators
 
-console.log(string.isString(undefined)) // null
-console.log(string.isString(null)) // null
-console.log(string.isString('-\/-')) // null
-console.log(string.isString('')) // null
+const minLength3 = array.minLength(3)
 
-console.log(string.isString({})) // ['string.type']
-console.log(string.isString(1)) // ['string.type']</code></pre>
+console.log(minLength3(undefined)) // null
+console.log(minLength3(null)) // null
+console.log(minLength3([1, 2, 3, 4, 5])) // null
+console.log(minLength3([1, 2, 3, 4])) // null
+console.log(minLength3([1, 2, 3])) // null
+
+console.log(minLength3([1, 2])) // ['array.min.length', 3]</code></pre>
 
 
   </div>
@@ -1192,13 +1198,13 @@ console.log(string.isString(1)) // ['string.type']</code></pre>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#.match">
+    <a class="link-icon" href="#.some">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id=".match">
-      <span class="type-signature">(static) </span>match<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;any>|null}</span>
+    <h4 class="name" id=".some">
+      <span class="type-signature">(static) </span>some<span class="signature">(value)</span><span class="type-signature"> &rarr; {Array.&lt;string>|null}</span>
     </h4>
   </span>
 
@@ -1207,7 +1213,7 @@ console.log(string.isString(1)) // ['string.type']</code></pre>
 
 
   <div class="description">
-    <p>Checks whether value is match a specific pattern</p>
+    <p>Checks whether at least one item of collection follows a predicate rule</p>
   </div>
 
 
@@ -1261,7 +1267,7 @@ console.log(string.isString(1)) // ['string.type']</code></pre>
         
 
         <td class="description last">
-          <p>accepts string</p>
+          <p>accepts an array of any type values</p>
           
         </td>
       </tr>
@@ -1305,7 +1311,7 @@ console.log(string.isString(1)) // ['string.type']</code></pre>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validators_string.js.html">validators/string.js</a>, <a href="validators_string.js.html#line171">line 171</a>
+          <a href="validators_array.js.html">validators/array.js</a>, <a href="validators_array.js.html#line45">line 45</a>
         </li>
       </ul>
     </dd>
@@ -1331,27 +1337,25 @@ console.log(string.isString(1)) // ['string.type']</code></pre>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#match-examples">
+    <a class="link-icon" href="#some-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="match-examples">Example</h5>
+    <h5 id="some-examples">Example</h5>
     
 
   <pre class="prettyprint"><code>import { validators } from 'egoist-js'
 
-const { string } = validators
+const { array } = validators
 
-const isUsername = string.match(/^[a-zA-Z\s]+$/)
+const hasEvenValue = array.some(value => value % 2 === 0)
 
-console.log(isUsername(undefined)) // null
-console.log(isUsername(null)) // null
-console.log(isUsername('John Margin')) // null
+console.log(hasEvenValue(undefined)) // null
+console.log(hasEvenValue(null)) // null
+console.log(hasEvenValue([1, 2, 3])) // null
 
-console.log(isUsername('10292929')) // ['string.match']
-console.log(isUsername('19 192 191.ds.')) // ['string.match']
-console.log(isUsername('')) // ['string.match']</code></pre>
+console.log(hasEvenValue([1, 3])) // ['array.some']</code></pre>
 
 
   </div>

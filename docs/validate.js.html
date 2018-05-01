@@ -72,7 +72,7 @@
       Ego Validation Library
     </h3>
 
-    <h3>Modules</h3><ul><li id="ego-nav"><a href="module-ego.html">ego</a><ul class='methods'><li data-type="method" id="ego-isInvalid-nav"><a href="module-ego.html#~isInvalid">isInvalid</a></li><li data-type="method" id="ego-isValid-nav"><a href="module-ego.html#~isValid">isValid</a></li><li data-type="method" id="ego-validate-nav"><a href="module-ego.html#~validate">validate</a></li></ul></li></ul>
+    <h3>Modules</h3><ul><li id="ego-nav"><a href="module-ego.html">ego</a><ul class='methods'><li data-type="method" id="ego-isInvalid-nav"><a href="module-ego.html#~isInvalid">isInvalid</a></li><li data-type="method" id="ego-isValid-nav"><a href="module-ego.html#~isValid">isValid</a></li><li data-type="method" id="ego-validate-nav"><a href="module-ego.html#~validate">validate</a></li><li data-type="method" id="ego-validateWithOpts-nav"><a href="module-ego.html#~validateWithOpts">validateWithOpts</a></li></ul></li></ul>
   </nav>
 
   <div id="main">
@@ -283,10 +283,62 @@ export default {
    * })
    * 
    * console.log(validationResult) 
-   * // [{ message: '', value: 17, args: 18, path: ['age'] }]
+   * // [{ message: 'age should be greater or equal than 18', value: 17, args: 18, path: ['age'] }]
    * 
    */
   validate: fp.curry(validate),
+  /**
+   * Curried function with opts, returns validation info if data has errors
+   * @function validateWithOpts
+   * 
+   * @arg {function} specFn - generated data spec {@link specification.flow|flow},
+   * {@link specification.of|of},
+   * {@link specification.compose|compose}
+   * @arg {Object} opts - object with `customMessages`, pls look at the example below
+   * @arg {any} value - value to check
+   * 
+   * @returns {Object[]|Null} Null if data is valid, otherwise one item array with reason of error
+   * 
+   * @example
+   * 
+   * import { validateWithOpts, spec, validators, ERROR_KEYS } from 'egoist-js'
+   * 
+   * const { shape, number, string, any } = validators
+   * 
+   * const adultUserModelSpec = spec.of({
+   *   name: spec.flow(string.isString, string.isNotEmpty, any.required),
+   *   age: spec.flow(number.isNumber, number.ge(18), any.required),
+   *   address: spec.of({
+   *    city: spec.flow(string.isString, any.required),
+   *    street: spec.flow(string.isString, any.required),
+   *   })
+   * })
+   * 
+   * const validateAdultUser = validateWithOpts(adultUserModelSpec, {
+   *   customMessages: {
+   *     [ERROR_KEYS.NUMBER.GE]: ({ label, path, value, args }) => 
+   *        `${label} can not contain [${value}], because expects something greater or equal than ${args}`
+   *   },
+   * })
+   * 
+   * const reasons = validateAdultUser({
+   *  name: 'Alice Morgan',
+   *  age: 17,
+   *  address: {
+   *    city: 'London',
+   *    street: 'Fitsrovia st.'
+   *  }
+   * })
+   * 
+   * console.log(reasons) 
+   * // [{
+   * //   message: 'age can not contain [17], because expects something greater or equal than 18',
+   * //   args: 18,
+   * //   value: 17,
+   * //   path: ['age'],
+   * // }]
+   * 
+   */
   validateWithOpts: fp.curry(validateWithOpts),
   validateAll: fp.curry(validateAll),
   validateAllWithOpts: fp.curry(validateAllWithOpts),

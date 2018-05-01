@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      module:ego - Documentation
+      spec - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -70,13 +70,13 @@
       Ego Validation Library
     </h3>
 
-    <h3>Modules</h3><ul><li id="ego-nav"><a href="module-ego.html">ego</a><ul class='methods'><li data-type="method" id="ego-isInvalid-nav"><a href="module-ego.html#~isInvalid">isInvalid</a></li><li data-type="method" id="ego-isValid-nav"><a href="module-ego.html#~isValid">isValid</a></li><li data-type="method" id="ego-validate-nav"><a href="module-ego.html#~validate">validate</a></li></ul></li></ul>
+    <h3>Modules</h3><ul><li id="ego-nav"><a href="module-ego.html">ego</a><ul class='methods'><li data-type="method" id="ego-isInvalid-nav"><a href="module-ego.html#~isInvalid">isInvalid</a></li><li data-type="method" id="ego-isValid-nav"><a href="module-ego.html#~isValid">isValid</a></li><li data-type="method" id="ego-validate-nav"><a href="module-ego.html#~validate">validate</a></li><li data-type="method" id="ego-validateWithOpts-nav"><a href="module-ego.html#~validateWithOpts">validateWithOpts</a></li></ul></li></ul>
   </nav>
 
   <div id="main">
     
       <h1 class="page-title">
-        module:ego
+        spec
       </h1>
     
 
@@ -87,7 +87,9 @@
     
       <h2>
         
-        module:ego
+          <span class="ancestors"><a href="module-ego.html">module:ego</a>~</span>
+        
+        spec
         
       </h2>
 
@@ -133,7 +135,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line2">line 2</a>
+          <a href="specification.js.html">specification.js</a>, <a href="specification.js.html#line2">line 2</a>
         </li>
       </ul>
     </dd>
@@ -160,75 +162,6 @@
      
 
     
-      <h3 class="subsection-title">Namespaces</h3>
-
-      <dl>
-        
-          <dt>
-            <a href="module-ego-ERROR_KEYS.html">ERROR_KEYS</a>
-          </dt>
-          <dd>
-            
-          </dd>
-        
-          <dt>
-            <a href="module-ego-ERROR_MESSAGES.html">ERROR_MESSAGES</a>
-          </dt>
-          <dd>
-            
-          </dd>
-        
-          <dt>
-            <a href="module-ego-spec.html">spec</a>
-          </dt>
-          <dd>
-            
-          </dd>
-        
-          <dt>
-            <a href="module-ego-validators_any.html">validators/any</a>
-          </dt>
-          <dd>
-            
-          </dd>
-        
-          <dt>
-            <a href="module-ego-validators_array.html">validators/array</a>
-          </dt>
-          <dd>
-            
-          </dd>
-        
-          <dt>
-            <a href="module-ego-validators_boolean.html">validators/boolean</a>
-          </dt>
-          <dd>
-            
-          </dd>
-        
-          <dt>
-            <a href="module-ego-validators_number.html">validators/number</a>
-          </dt>
-          <dd>
-            
-          </dd>
-        
-          <dt>
-            <a href="module-ego-validators_shape.html">validators/shape</a>
-          </dt>
-          <dd>
-            
-          </dd>
-        
-          <dt>
-            <a href="module-ego-validators_string.html">validators/string</a>
-          </dt>
-          <dd>
-            
-          </dd>
-        
-      </dl>
-    
 
     
 
@@ -242,13 +175,13 @@
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#~isInvalid">
+    <a class="link-icon" href="#.compose">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id="~isInvalid">
-      <span class="type-signature">(inner) </span>isInvalid<span class="signature">(specFn, value)</span><span class="type-signature"> &rarr; {boolean}</span>
+    <h4 class="name" id=".compose">
+      <span class="type-signature">(static) </span>compose<span class="signature">()</span><span class="type-signature"> &rarr; {function}</span>
     </h4>
   </span>
 
@@ -257,7 +190,7 @@
 
 
   <div class="description">
-    <p>Curried function tells whether value is invalid</p>
+    <p>Function is used to create a composition between specification functions</p>
   </div>
 
 
@@ -290,14 +223,14 @@
     
       <tr>
         
-          <td class="name"><code>specFn</code></td>
+          <td class="name"><code>...specs</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      function
+      Array.&lt;function()>
     </span>
 
     
@@ -311,38 +244,7 @@
         
 
         <td class="description last">
-          <p>generated data spec flow,
-of,
-compose</p>
-          
-        </td>
-      </tr>
-
-    
-      <tr>
-        
-          <td class="name"><code>value</code></td>
-        
-
-        <td class="type">
-          
-            
-    <span class="param-type">
-      any
-    </span>
-
-    
-
-
-          
-        </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>value to check</p>
+          <p>Accpets spec functions as list of arguments</p>
           
         </td>
       </tr>
@@ -386,7 +288,7 @@ compose</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line118">line 118</a>
+          <a href="specification.js.html">specification.js</a>, <a href="specification.js.html#line96">line 96</a>
         </li>
       </ul>
     </dd>
@@ -412,457 +314,529 @@ compose</p>
 
 
   <div class="example-container">
-    <a class="link-icon" href="#isInvalid-examples">
+    <a class="link-icon" href="#compose-examples">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h5 id="isInvalid-examples">Example</h5>
+    <h5 id="compose-examples">Example</h5>
     
 
-  <pre class="prettyprint"><code>import { isInvalid, spec, validators } from 'egoist-js'
-
-const { string, any } = validators
-
-const usernameSpec = spec.flow(string.isString, string.isNotEmpty, any.required)
-console.log(isInvalid(usernameSpec, 'hello')) // false
-
-const isInvalidUsernameFn = isInvalid(usernameSpec)
-console.log(isInvalidUsernameFn('nope')) // false
-console.log(isInvalidUsernameFn(undefined)) // true
-console.log(isInvalidUsernameFn(null)) // true
-console.log(isInvalidUsernameFn('')) // true</code></pre>
-
-
-  </div>
-
-
-      
-        
-
-
-  
-
-  <span class='name-container'>
-    <a class="link-icon" href="#~isValid">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h4 class="name" id="~isValid">
-      <span class="type-signature">(inner) </span>isValid<span class="signature">(specFn, value)</span><span class="type-signature"> &rarr; {boolean}</span>
-    </h4>
-  </span>
-
-  
-
-
-
-  <div class="description">
-    <p>Curried function tells whether value is valid</p>
-  </div>
-
-
-
-
-
-
-
-  <h5>Parameters:</h5>
-  
-
-<table class="params">
-  <thead>
-    <tr>
-      
-        <th>Name</th>
-      
-
-      <th>Type</th>
-
-      
-
-      
-
-      <th class="last">Description</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    
-      <tr>
-        
-          <td class="name"><code>specFn</code></td>
-        
-
-        <td class="type">
-          
-            
-    <span class="param-type">
-      function
-    </span>
-
-    
-
-
-          
-        </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>generated data spec flow,
-of,
-compose</p>
-          
-        </td>
-      </tr>
-
-    
-      <tr>
-        
-          <td class="name"><code>value</code></td>
-        
-
-        <td class="type">
-          
-            
-    <span class="param-type">
-      any
-    </span>
-
-    
-
-
-          
-        </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>value to check</p>
-          
-        </td>
-      </tr>
-
-    
-  </tbody>
-</table>
-
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line90">line 90</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="example-container">
-    <a class="link-icon" href="#isValid-examples">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h5 id="isValid-examples">Example</h5>
-    
-
-  <pre class="prettyprint"><code>import { isValid, spec, validators } from 'egoist-js'
-
-const { string, any } = validators
-
-const usernameSpec = spec.flow(string.isString, string.isNotEmpty, any.required)
-console.log(isValid(usernameSpec, 'hello')) // true
-
-const isValidUsernameFn = isValid(usernameSpec)
-console.log(isValidUsernameFn('nope')) // true
-console.log(isValidUsernameFn(undefined)) // false
-console.log(isValidUsernameFn(null)) // false
-console.log(isValidUsernameFn('')) // false</code></pre>
-
-
-  </div>
-
-
-      
-        
-
-
-  
-
-  <span class='name-container'>
-    <a class="link-icon" href="#~validate">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h4 class="name" id="~validate">
-      <span class="type-signature">(inner) </span>validate<span class="signature">(specFn, value)</span><span class="type-signature"> &rarr; {Array.&lt;Object>|Null}</span>
-    </h4>
-  </span>
-
-  
-
-
-
-  <div class="description">
-    <p>Curried function returns validation info if data has errors</p>
-  </div>
-
-
-
-
-
-
-
-  <h5>Parameters:</h5>
-  
-
-<table class="params">
-  <thead>
-    <tr>
-      
-        <th>Name</th>
-      
-
-      <th>Type</th>
-
-      
-
-      
-
-      <th class="last">Description</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    
-      <tr>
-        
-          <td class="name"><code>specFn</code></td>
-        
-
-        <td class="type">
-          
-            
-    <span class="param-type">
-      function
-    </span>
-
-    
-
-
-          
-        </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>generated data spec flow,
-of,
-compose</p>
-          
-        </td>
-      </tr>
-
-    
-      <tr>
-        
-          <td class="name"><code>value</code></td>
-        
-
-        <td class="type">
-          
-            
-    <span class="param-type">
-      any
-    </span>
-
-    
-
-
-          
-        </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>value to check</p>
-          
-        </td>
-      </tr>
-
-    
-  </tbody>
-</table>
-
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line146">line 146</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="example-container">
-    <a class="link-icon" href="#validate-examples">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h5 id="validate-examples">Example</h5>
-    
-
-  <pre class="prettyprint"><code>import { validate, spec, validators } from 'egoist-js'
-
-const { shape, number, string, any } = validators
-
-const usernameSpec = spec.flow(string.isString, string.isNotEmpty, any.required)
-console.log(validate(usernameSpec, 'hello')) // null
-
-const validateUsername = validate(usernameSpec)
-
-console.log(validateUsername(null)) 
-// [{
-//  message: 'value is required', 
-//  value: null, 
-//  args: undefined, 
-//  path: [] // path is computed property
-// }]
-
-
-const adultUserModelSpec = spec.compose(
- spec.flow(
-  shape.isShape,
-  shape.hasKeys('name', 'age'),
-  any.required,
- ),
- spec.of({
-  name: spec.flow(string.isString, string.isNotEmpty, any.required),
-  age: spec.flow(number.isNumber, number.ge(18), any.required),
- })
-)
-
-const validateAdultUser = validate(adultUserModelSpec)
-
-const validationResult = validateAdultUser({
- name: 'Oliver Darkside',
- age: 17,
+  <pre class="prettyprint"><code>const userModelBodySpec = spec.of({
+ username: spec.flow(string.isNotEmpty, any.required),
+ bestFriend: spec.lazy(() => userModelBodySpec),
 })
 
-console.log(validationResult) 
-// [{ message: '', value: 17, args: 18, path: ['age'] }]</code></pre>
+const userModelRequiredSpec = spec.flow(any.requied)
+
+const fullUserModelSpec = spec.compose(
+ userModelRequiredSpec,
+ spec.flow(shape.expectKeys(['username', 'bestFriend'])),
+ userModelBodySpec,
+)</code></pre>
+
+
+  </div>
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#.flow">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id=".flow">
+      <span class="type-signature">(static) </span>flow<span class="signature">()</span><span class="type-signature"> &rarr; {function}</span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    <p>Function is used to create validation flow</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>...validators</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      Array.&lt;function()>
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>Accepts validation functions as list of arguments</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="specification.js.html">specification.js</a>, <a href="specification.js.html#line50">line 50</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="example-container">
+    <a class="link-icon" href="#flow-examples">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h5 id="flow-examples">Example</h5>
+    
+
+  <pre class="prettyprint"><code>const usernameSpec = spec.flow(
+ string.isString,
+ string.match(/^[A-Z][a-z]+\s[A-Z][a-z]+$/)
+ string.isNotMatch,
+ any.required
+)</code></pre>
+
+
+  </div>
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#.lazy">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id=".lazy">
+      <span class="type-signature">(static) </span>lazy<span class="signature">(getSpecLazy)</span><span class="type-signature"> &rarr; {LazySpec}</span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    <p>Function is used to create a lazy evaluate specification item</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>getSpecLazy</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      function
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>Expected spec function to be passed</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="specification.js.html">specification.js</a>, <a href="specification.js.html#line25">line 25</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="example-container">
+    <a class="link-icon" href="#lazy-examples">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h5 id="lazy-examples">Example</h5>
+    
+
+  <pre class="prettyprint"><code>const userModelSpec = spec.of({
+ username: spec.flow(string.isNotEmpty, any.required),
+ bestFriend: spec.lazy(() => userModelSpec), // returns lazy evaluated spec function
+})</code></pre>
+
+
+  </div>
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#.of">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id=".of">
+      <span class="type-signature">(static) </span>of<span class="signature">(specDescriptor)</span><span class="type-signature"> &rarr; {function}</span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    <p>Function helps to create spec fof complex object such as arrays or shapes (aka objects)</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>specDescriptor</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      Object
+    </span>
+
+    |
+
+    <span class="param-type">
+      Array
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>Accepts object where properties' values must be spec functions
+or array with only one item that is a spec function</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="specification.js.html">specification.js</a>, <a href="specification.js.html#line151">line 151</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="example-container">
+    <a class="link-icon" href="#of-examples">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h5 id="of-examples">Example</h5>
+    
+
+  <pre class="prettyprint"><code>const simpleHeroSpec = spec.of({
+ name: spec.flow(string.isString, string.isNotEmpty, any.required),
+ abilities: spec.of([spec.flow(any.required)])
+ address: spec.of({
+   city: spec.flow(any.required),
+   // pls note - spec can be complex
+   streets: spec.of([spec.of({ zip: spec.flow(any.required) })])
+ })
+})</code></pre>
 
 
   </div>
