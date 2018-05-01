@@ -8,7 +8,7 @@
   "scripts": {
     "gen:readme": "jsdoc",
     "gen:docs": "jsdoc -r ./lib/ -t ./node_modules/docdash",
-    "precommit": "yarn gulp && yarn build",
+    "precommit": "yarn gulp && yarn build && git add .",
     "test": "./node_modules/mocha/bin/mocha --opts ./mocha.opts ./specs/**/*.spec.js ./specs/*.spec.js",
     "build": "gulp build"
   },
