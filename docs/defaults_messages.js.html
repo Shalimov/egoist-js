@@ -106,7 +106,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.ANY|any.unknown}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.ANY.UNKNOWN]
    * console.log(messageFn({ label: 'Superfield' })) // Superfield contains errors
@@ -118,7 +118,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.ANY|any.required}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.ANY.REQUIRED]
    * console.log(messageFn({ label: 'Superfield' })) // Superfield is required
@@ -130,7 +130,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.ANY|any.allow}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.ANY.ALLOW]
    * console.log(messageFn({ label: 'Superfield', args: ['hello', 'world'] })) 
@@ -144,7 +144,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.NUMBER|number.type}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.NUMBER.TYPE]
    * console.log(messageFn({ label: 'Superfield' })) 
@@ -157,7 +157,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.NUMBER|number.gt}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.NUMBER.GT]
    * console.log(messageFn({ label: 'Superfield', args: 5 })) 
@@ -170,7 +170,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.NUMBER|number.lt}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.NUMBER.LT]
    * console.log(messageFn({ label: 'Superfield', args: 5 })) 
@@ -183,7 +183,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.NUMBER|number.ge}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.NUMBER.GE]
    * console.log(messageFn({ label: 'Superfield', args: 5 })) 
@@ -196,7 +196,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.NUMBER|number.le}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.NUMBER.LE]
    * console.log(messageFn({ label: 'Superfield', args: 5 })) 
@@ -209,7 +209,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.NUMBER|number.range}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.NUMBER.RANGE]
    * console.log(messageFn({ label: 'Superfield', args: [5, 10] })) 
@@ -223,7 +223,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.STRING|string.empty}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.STRING.EMPTY]
    * console.log(messageFn({ label: 'Superfield' })) 
@@ -236,7 +236,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.STRING|string.type}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.STRING.TYPE]
    * console.log(messageFn({ label: 'Superfield' })) 
@@ -249,7 +249,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.STRING|string.match}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.STRING.MATCH]
    * console.log(messageFn({ label: 'Superfield', args: /[a-zA-Z]/ })) 
@@ -262,7 +262,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.STRING|string.email}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.STRING.EMAIL]
    * console.log(messageFn({ label: 'Superfield' })) 
@@ -275,7 +275,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.STRING|string.digits}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.STRING.DIGITS]
    * console.log(messageFn({ label: 'Superfield' })) 
@@ -288,7 +288,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.STRING|string.alphanum}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.STRING.ALPHANUM]
    * console.log(messageFn({ label: 'Superfield' })) 
@@ -301,7 +301,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.STRING|string.iso.date}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.STRING.ISO_DATE]
    * console.log(messageFn({ label: 'Superfield' })) 
@@ -315,7 +315,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.BOOLEAN|boolean.type}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.BOOLEAN.TYPE]
    * console.log(messageFn({ label: 'Superfield' })) 
@@ -329,7 +329,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.SHAPE|shape.type}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.SHAPE.TYPE]
    * console.log(messageFn({ label: 'Superfield' })) 
@@ -342,7 +342,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.SHAPE|shape.allowed.keys}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.SHAPE.ALLOWED_KEYS]
    * console.log(messageFn({ label: 'Superfield', args: ['prop1', 'prop2'] })) 
@@ -355,7 +355,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.SHAPE|shape.expected.keys}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.SHAPE.EXPECTED_KEYS]
    * console.log(messageFn({ label: 'Superfield', args: ['prop1', 'prop2'] })) 
@@ -368,7 +368,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.SHAPE|shape.forbidden.keys}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.SHAPE.FORBIDDEN_KEYS]
    * console.log(messageFn({ label: 'Superfield', args: ['prop1', 'prop2'] })) 
@@ -382,7 +382,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.ARRAY|array.type}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.ARRAY.TYPE]
    * console.log(messageFn({ label: 'Superfield' })) 
@@ -395,7 +395,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.ARRAY|array.exact.length}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.ARRAY.LENGTH]
    * console.log(messageFn({ label: 'Superfield', args: 5 }))
@@ -408,7 +408,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.ARRAY|array.min.length}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.ARRAY.MIN_LENGTH]
    * console.log(messageFn({ label: 'Superfield', args: 5 }))
@@ -421,7 +421,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.ARRAY|array.max.length}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.ARRAY.MAX_LENGTH]
    * console.log(messageFn({ label: 'Superfield', args: 5 }))
@@ -434,7 +434,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.ARRAY|array.range}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.ARRAY.IN_RANGE]
    * console.log(messageFn({ label: 'Superfield', args: [5, 10] }))
@@ -447,7 +447,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.ARRAY|array.some}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.ARRAY.SOME]
    * console.log(messageFn({ label: 'Superfield' }))
@@ -460,7 +460,7 @@ const MESSAGES = Object.freeze({
    * 
    * @arg {Object} params - Returns message related to {@link module:ego~ERROR_KEYS.ARRAY|array.every}
    * @example
-   * import { ERROR_MESSAGES, ERROR_KEYS } from 'ego'
+   * import { ERROR_MESSAGES, ERROR_KEYS } from 'egoist-js'
    * 
    * const messageFn = ERROR_MESSAGES[ERROR_KEYS.ARRAY.EVERY]
    * console.log(messageFn({ label: 'Superfield' }))
