@@ -421,14 +421,49 @@ export default {
    * Function helps to create your own validation functions and define your own validation messages
    * @function createValidateFunction
    * @static
-   * 
+   *
    * @arg {Object} opts - object with `customMessages`, pls look at the example below
    * @arg {boolean} opts.untilFail - tells validation functions when to stop,
    * if true check validators until first fail, else check all of them
    * @arg {Object&lt;string, function>} opts.messageFuncs - object with {@link module:ego~ERROR_KEYS|error keys} and {@link module:ego~ERROR_MESSAGES|error message function}
-   * 
+   *
    * @returns {function[]} tuple with two functions e.g: [validate, validateWithOpts]
+   *
+   * @example
    * 
+   * import {
+   *  spec,
+   *  createValidateFunction,
+   *  toValidator,
+   *  toValidatorWithArgs,
+   *  ERROR_KEYS,
+   *  ERROR_MESSAGES,
+   * } from 'egoist-js'
+   * 
+   * const customeErrorKey = 'my.custom.error.key'
+   * 
+   * const customMessageFunc = {
+   *   ...ERROR_MESSAGES,
+   *   [ERROR_KEYS.ANY.REQUIRED]: ({ label, args, value, path }) => `${label} is mandatory`,
+   *   [customeErrorKey]: ({ label, args, value, path }) => `${label} bla bla bla`,
+   * }
+   * 
+   * const [cvalidate, cvalidateWithOpts] = createValidateFunction({
+   *  untilFail: true,
+   *  messageFuncs: customMessageFunc,
+   * })
+   * 
+   *
+   * const [cvalidateAll, cvalidateAllWithOpts] = createValidateFunction({
+   *  untilFail: true,
+   *  messageFuncs: customMessageFunc,
+   * })
+   * 
+   * const customValidator = toValidator(customeErrorKey, (value) => Boolean(value))
+   * 
+   * console.log(cvalidate(spec.flow(customValidator), 0))
+   * // [{ messsge: 'value bla bla bla', value: 0, args: undefined, path: [] }]
+   *
    */
   createValidateFunction,
 }

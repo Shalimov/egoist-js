@@ -953,5 +953,6 @@ input.search-input:focus {
 
 .name-container {
   display: flex;
-  padding-top: 1em;
+  border: 1px solid #c8c8c8;
+  padding: 16px;
 }
