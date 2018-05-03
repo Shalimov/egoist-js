@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      validators/boolean.js - Documentation
+      Tutorial: custom-validators - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -78,55 +76,37 @@
   <div id="main">
     
       <h1 class="page-title">
-        validators/boolean.js
+        Tutorial: custom-validators
       </h1>
     
 
+    <section>
+  <header>
     
-      
 
-<section>
+    <h2>
+      custom-validators
+    </h2>
+  </header>
+
   <article>
-    <pre class="prettyprint source linenums"><code>/** @module ego */
-/** @namespace module:ego~validators/boolean */
-import fp from '../lodash.imports'
+    <!-- 1. [Simple Custom Validator](#simpleCustomValidator)
+2. [Custom Validator with arguments](#customValidatorWithArgs) -->
+<ol>
+<li><a href="#crossValidator">Cross Field Validator</a></li>
+</ol>
+<p>Example <strong><a name="crossValidator"></a>Cross Field Validator</strong></p>
+<pre class="prettyprint source"><code>import fp from 'lodash/fp'
+import { toValidatorWithArgs } from 'egoist-js'
 
-import ERROR_KEYS from '../defaults/keys'
-import { toValidator } from '../utils'
+const MY_CUSTOM_ERROR_KEY = 'my.custom.error.key'
 
-const isBoolean = toValidator(ERROR_KEYS.BOOLEAN.TYPE, fp.isBoolean)
-
-export {
-  /**
-   * @function isBoolean
-   * @memberof module:ego~validators/boolean
-   * 
-   * @arg {any} value any possible value
-   * 
-   * @returns {string[]|null} returns one item array with key [{@link module:ego~ERROR_KEYS.BOOLEAN|'boolean.type'}]
-   * 
-   * @example
-   * 
-   * import { validators } from 'egoist-js'
-   * 
-   * const { boolean } = validators
-   * 
-   * console.log(boolean.isBoolean(undefined)) // null
-   * console.log(boolean.isBoolean(null)) // null
-   * console.log(boolean.isBoolean(true)) // null
-   * console.log(boolean.isBoolean([])) // null
-   * 
-   * console.log(boolean.isBoolean(1)) // ['boolean.type']
-   * 
-   */
-  isBoolean,
-}
-</code></pre>
+const crossValidator = toValidatorWithArgs(MY_CUSTOM_ERROR_KEY, (propToCheck, value, { context }) => {
+  const propValue = fp.get(`current.${propToCheck}`, context)
+  return value === propValue
+})</code></pre>
   </article>
 </section>
-
-    
-
 
   </div>
 
