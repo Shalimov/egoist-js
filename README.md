@@ -5,7 +5,7 @@ Docs in progress:
 However you can look at [Egoist-JS](https://shalimov.github.io/egoist-js) pages
 
 Guides:
-- [Custom Validators](/tutorial-custom-validators.html)
+- [Custom Validators](/egoist-js/tutorial-custom-validators.html)
 
 ## Getting Started
 
@@ -21,7 +21,7 @@ const {
   string,
   number,
   shape,
-}
+} = validators
 
 const userModelSpec = spec.compose(
   spec.flow(any.requied),
