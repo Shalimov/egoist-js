@@ -1,6 +1,6 @@
 {
   "name": "egoist-js",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Validation lib for FE/BE",
   "main": "./dist/dist.js",
   "license": "MIT",
