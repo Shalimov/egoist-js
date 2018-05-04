@@ -5,7 +5,7 @@ Docs in progress:
 However you can look at [Egoist-JS](https://shalimov.github.io/egoist-js) pages
 
 Guides:
-- [Custom Validators](/egoist-js/tutorial-custom-validators.html)
+- [Custom Validators](https://shalimov.github.io/egoist-js/tutorial-custom-validators.html)
 
 ## Getting Started
 
