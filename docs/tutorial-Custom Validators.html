@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      specification.js - Documentation
+      Tutorial: Custom Validators - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -78,274 +76,112 @@
   <div id="main">
     
       <h1 class="page-title">
-        specification.js
+        Tutorial: Custom Validators
       </h1>
     
 
+    <section>
+  <header>
     
-      
 
-<section>
+    <h2>
+      Custom Validators
+    </h2>
+  </header>
+
   <article>
-    <pre class="prettyprint source linenums"><code>/** @module ego */
-/** @namespace module:ego~spec */
-import fp from './lodash.imports'
+    <!-- 1. [Simple Custom Validator](#simpleCustomValidator)
+2. [Custom Validator with arguments](#customValidatorWithArgs) -->
+<ol>
+<li><a href="#crossValidator">Cross Field Validator</a></li>
+<li><a href="#crossValidatorWithoutHelpers">Cross Field Validator Without Helpers</a></li>
+</ol>
+<p>Example <strong><a name="crossValidator"></a>Cross Field Validator</strong></p>
+<pre class="prettyprint source"><code>import fp from 'lodash/fp'
+import { spec, validators, validateWithOpts, toValidatorWithArgs } from 'egoist-js'
 
-const SPEC_FN_SYMBOL = Symbol('spec-fn-symbol')
+const MY_CUSTOM_ERROR_KEY = 'my.custom.error.key'
 
-const LazySpec = class {
-  constructor(lazy) {
-    this.lazy = lazy
+const propEqualProp = toValidatorWithArgs(MY_CUSTOM_ERROR_KEY, (propToCheck, value, { context }) => {
+  const propValue = fp.get(`current.${propToCheck}`, context)
+  return value === propValue
+})
+
+const userSpec = spec.of({
+  name: spec.flow(any.required),
+  password: spec.flow(any.required),
+  confirmPassword: spec.flow(
+    propEqualProp('password'),
+    any.required
+  ),
+})
+
+const validateUser = validate(userSpec, {
+  customMessages: {
+    [MY_CUSTOM_ERROR_KEY]: ({ label }) => `${label} should match password`,
   }
-}
+})
 
-const nullOrCollection = fp.cond([
-  [fp.isEmpty, () => null],
-  [fp.stubTrue, fp.identity],
-])
+const result = validateUser({
+  name: 'John Doe',
+  password: '123123qQ',
+  confirmPassword: 'should-fail',
+})
 
-const isSpec = spec => Boolean(spec[SPEC_FN_SYMBOL])
-const asSpec = (specFn) => {
-  specFn[SPEC_FN_SYMBOL] = true
-  return Object.freeze(specFn)
-}
+console.log(result)
+/*
+[{
+  value: 'should-fail',
+  args: 'password',
+  path: ['confirmPassword'],
+  message: 'confirmPassword should match password',
+}]
+*/</code></pre><p>Example <strong><a name="crossValidatorWithoutHelpers"></a>Cross Field Validator Without Helper</strong></p>
+<pre class="prettyprint source"><code>import { spec, validators, validateWithOpts } from 'egoist-js'
 
-export default {
-  /**
-   * Function is used to create a lazy evaluate specification item
-   * @function lazy
-   * @memberof module:ego~spec
-   * 
-   * @arg {function} getSpecLazy - Expected spec function to be passed 
-   * 
-   * @returns {LazySpec} - Object which could be used as argument for #compose, #of functions
-   * 
-   * @example
-   * 
-   * const userModelSpec = spec.of({
-   *  username: spec.flow(string.isNotEmpty, any.required),
-   *  bestFriend: spec.lazy(() => userModelSpec), // returns lazy evaluated spec function
-   * })
-   * 
-   */
-  lazy: (getSpecLazy) => {
-    if (!fp.isFunction(getSpecLazy)) {
-      throw new Error('lazy accepts only function as an argument')
-    }
+const MY_CUSTOM_ERROR_KEY = 'my.custom.error.key'
 
-    return new LazySpec(getSpecLazy)
-  },
+const allowedToBeSelected = (property) => (value, { context }) => {
+  const ctxPropValue = context.current[property]
+  if (ctxPropValue === 'zoom' && value === 'out') {
+    return null
+  }
 
-  /**
-   * Function is used to create validation flow
-   * @function flow
-   * @memberof module:ego~spec
-   * 
-   * @arg {function[]} ...validators - Accepts validation functions as list of arguments
-   * 
-   * @returns {function} - Spec function which could be used as argument
-   * 
-   * @example
-   * 
-   * const usernameSpec = spec.flow(
-   *  string.isString,
-   *  string.match(/^[A-Z][a-z]+\s[A-Z][a-z]+$/)
-   *  string.isNotMatch,
-   *  any.required
-   * )
-   * 
-   */
-  flow: (...args) => {
-    let [validators, opts] = args
-    const defaultKey = fp.get('key', opts)
+  // second element of tuple you will find out in error reason object (args prop)
+  return [MY_CUSTOM_ERROR_KEY, [property, ctxPropValue]]
+} 
 
-    validators = fp.isArray(validators) ? validators : args
+const someStuffSpec = spec.of({
+  baseType: spec.flow(any.required),
+  derivedType: spec.flow(
+    allowedToBeSelected('baseType'),
+    any.required
+  ),
+})
 
-    return asSpec((value, options = {}) => {
-      const results = []
-      const { context, untilFail } = {
-        context: options.context || { key: defaultKey },
-        untilFail: options.untilFail,
-      }
+const validateSomeStuff = validate(userSpec, {
+  customMessages: {
+    [MY_CUSTOM_ERROR_KEY]: ({ label, args: [prop ,propValue], value }) => 
+      `${label} should be 'out' and ${prop} should be 'zoom' instead of '${propValue}'`,
+  }
+})
 
-      for (let validator of validators) {
-        const result = validator(value, { context })
+const result = validateSomeStuff({
+  baseType: 'term',
+  derivedType: 'zsh'
+})
 
-        if (fp.isArray(result)) {
-          results.push({ result, value, context })
-        }
-
-        if (untilFail &amp;&amp; results.length > 0) {
-          return results
-        }
-      }
-
-      return nullOrCollection(results)
-    })
-  },
-
-  /**
-   * Function is used to create a composition between specification functions
-   * @function compose
-   * @memberof module:ego~spec
-   * 
-   * @arg {function[]} ...specs - Accpets spec functions as list of arguments
-   * 
-   * @returns {function} - Spec function which could be used as argument
-   * 
-   * @example
-   * 
-   * const userModelBodySpec = spec.of({
-   *  username: spec.flow(string.isNotEmpty, any.required),
-   *  bestFriend: spec.lazy(() => userModelBodySpec),
-   * })
-   * 
-   * const userModelRequiredSpec = spec.flow(any.requied)
-   * 
-   * const fullUserModelSpec = spec.compose(
-   *  userModelRequiredSpec,
-   *  spec.flow(shape.expectKeys(['username', 'bestFriend'])),
-   *  userModelBodySpec,
-   * )
-   * 
-   */
-  compose: (...specs) => {
-    if (!specs.every(isSpec)) {
-      throw new Error('compose args should be the specs')
-    }
-
-    return asSpec((value, options) => {
-      const results = []
-      const extOptions = fp.assign({
-        context: null,
-        untilFail: false,
-      }, options)
-
-      for (let i = 0, l = specs.length; i &lt; l; i += 1) {
-        const spec = specs[i]
-        const result = spec(value, extOptions)
-
-        if (fp.isArray(result)) {
-          results.push(...result)
-        }
-
-        if (extOptions.untilFail &amp;&amp; results.length > 0) {
-          return results
-        }
-      }
-
-      return nullOrCollection(results)
-    })
-  },
-
-  // TODO: mb use template method to support diff forms of spec generators
-  /**
-   * Function helps to create spec fof complex object such as arrays or shapes (aka objects)
-   * @function of
-   * @memberof module:ego~spec
-   * 
-   * @arg {Object|Array} specDescriptor - Accepts object where properties' values must be spec functions
-   * or array with only one item that is a spec function
-   * 
-   * @returns {function} - Spec function which could be used as argument
-   * 
-   * @example
-   * 
-   * const simpleHeroSpec = spec.of({
-   *  name: spec.flow(string.isString, string.isNotEmpty, any.required),
-   *  abilities: spec.of([spec.flow(any.required)])
-   *  address: spec.of({
-   *    city: spec.flow(any.required),
-   *    // pls note - spec can be complex
-   *    streets: spec.of([spec.of({ zip: spec.flow(any.required) })])
-   *  })
-   * })
-   * 
-   */
-  of: specDescriptor => {
-    if (fp.isArray(specDescriptor)) {
-      // spec generator for arrays aka collections
-      return asSpec((collection, options) => {
-        const results = []
-        const { context, untilFail } = fp.assign({
-          context: null,
-          untilFail: false,
-        }, options)
-
-        const [spec] = specDescriptor
-        const specFn = spec.lazy ? spec.lazy() : spec
-
-        if (!fp.isArray(collection)) {
-          return null
-        }
-
-        for (let i = 0, l = collection.length; i &lt; l; i += 1) {
-          const value = collection[i]
-
-          const result = specFn(value, {
-            context: {
-              key: i,
-              current: collection,
-              parent: context,
-            },
-            untilFail,
-          })
-
-          if (fp.isArray(result)) {
-            results.push(...result)
-          }
-
-          if (untilFail &amp;&amp; results.length > 0) {
-            return results
-          }
-        }
-
-        return nullOrCollection(results)
-      })
-    }
-
-    // spec generator for objects aka shapes
-    return asSpec((value, options) => {
-      const results = []
-      const { context, untilFail } = fp.assign({
-        context: null,
-        untilFail: false,
-      }, options)
-
-      const kvPairs = fp.entries(specDescriptor)
-
-      for (let i = 0, l = kvPairs.length; i &lt; l; i += 1) {
-        const [key, spec] = kvPairs[i]
-        const specFn = spec.lazy ? spec.lazy() : spec
-
-        const result = specFn(fp.get(key, value), {
-          context: {
-            key,
-            current: value,
-            parent: context,
-          },
-          untilFail,
-        })
-
-        if (fp.isArray(result)) {
-          results.push(...result)
-        }
-
-        if (untilFail &amp;&amp; results.length > 0) {
-          return results
-        }
-      }
-
-      return nullOrCollection(results)
-    })
-  },
-}
-</code></pre>
+console.log(result)
+/*
+[{
+  value: 'zsh',
+  args: ['baseType', 'term'],
+  path: ['derivedType'],
+  message: 'derivedType should be \'out\' and baseType should be \'zoom\' instead of \'term\'',
+}]
+*/</code></pre>
   </article>
 </section>
-
-    
-
 
   </div>
 

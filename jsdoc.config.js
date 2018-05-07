@@ -11,7 +11,7 @@ module.exports = {
 		recurse: true,
 	},
 	templates: {
-		referenceTitle: 'FP Validation Library',
+		referenceTitle: 'Validation Library',
 	},
 	tags: {
 		allowUnknownTags: true,
