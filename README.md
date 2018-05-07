@@ -57,10 +57,12 @@ console.log(validate(userModelSpec, someUserData))
 // [{ message: 'age should be greater or equal than 18', args: 18, value: 10, path: ['age'] }]
 
 const adultUserSpec2 = spec.compose(
-  spec.flow([any.required], { key: 'User' }),
+  spec.designate('user', spec.flow(any.required)),
   userModelDetailedSpec
 )
 
-spec.name(spec.flow(any.required), 'User')
+validate(adultUserSpec2, null)
+// [{ message: 'user is required', args: undefined, value: null, path: [] }]
+
 
 ```
