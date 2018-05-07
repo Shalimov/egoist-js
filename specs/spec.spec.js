@@ -17,6 +17,22 @@ describe('$pec Module Spec', () => {
     }).should.be.a.Function
   })
 
+  it('should wrap spec into default context via #designate to provide key for custom labeling', () => {
+    const userModelSpec = spec.compose(
+      spec.designate('user', spec.flow(required)),
+      spec.of({
+        username: spec.flow(isNotEmpty, required),
+        friends: spec.of([spec.lazy(() => userModelSpec)]),
+      })
+    )
+
+    const result = userModelSpec(null, { untilFail: true })
+
+    result.should.matchEach(it => {
+      it.context.key.should.be.eql('user')
+    })
+  })
+
   it('should return error description if error exists, otherwise null', () => {
     const specFn = spec.flow(isNotEmpty, required)
 
