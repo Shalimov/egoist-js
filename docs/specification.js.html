@@ -126,8 +126,10 @@ export default {
    * 
    * import { spec } from 'egoist-js'
    * 
+   * const asUserSpec = spec.designate('user')
+   * 
    * const userModelSpec = spec.compose(
-   *   spec.designate('user', spec.flow(required)),
+   *   asUserSpec(spec.flow(required)),
    *   spec.of({
    *     username: spec.flow(isNotEmpty, required),
    *     friends: spec.of([spec.lazy(() => userModelSpec)]),
@@ -138,14 +140,14 @@ export default {
    * // [{ message: 'user is required', value: null, args: undefined, path: [] }]
    * 
    */
-  designate: (key, spec) => asSpec((value, options = {}) => {
+  designate: fp.curry((key, spec) => asSpec((value, options = {}) => {
     const refinedOpts = {
       ...options,
       context: options.context || { key, current: null, parent: null },
     }
 
     return spec(value, refinedOpts)
-  }),
+  })),
   /**
    * Function is used to create a lazy evaluate specification item
    * @function lazy

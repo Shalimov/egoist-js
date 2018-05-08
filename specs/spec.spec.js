@@ -18,8 +18,10 @@ describe('$pec Module Spec', () => {
   })
 
   it('should wrap spec into default context via #designate to provide key for custom labeling', () => {
+    const asUserSpec = spec.designate('user')
+    
     const userModelSpec = spec.compose(
-      spec.designate('user', spec.flow(required)),
+      asUserSpec(spec.flow(required)),
       spec.of({
         username: spec.flow(isNotEmpty, required),
         friends: spec.of([spec.lazy(() => userModelSpec)]),

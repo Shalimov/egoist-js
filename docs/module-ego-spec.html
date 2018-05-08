@@ -317,7 +317,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="specification.js.html">specification.js</a>, <a href="specification.js.html#line135">line 135</a>
+          <a href="specification.js.html">specification.js</a>, <a href="specification.js.html#line137">line 137</a>
         </li>
       </ul>
     </dd>
@@ -586,8 +586,10 @@ or collection context and want to rename output label for validation message</p>
 
   <pre class="prettyprint"><code>import { spec } from 'egoist-js'
 
+const asUserSpec = spec.designate('user')
+
 const userModelSpec = spec.compose(
-  spec.designate('user', spec.flow(required)),
+  asUserSpec(spec.flow(required)),
   spec.of({
     username: spec.flow(isNotEmpty, required),
     friends: spec.of([spec.lazy(() => userModelSpec)]),
@@ -751,7 +753,7 @@ const result = validate(null, { untilFail: true })
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="specification.js.html">specification.js</a>, <a href="specification.js.html#line87">line 87</a>
+          <a href="specification.js.html">specification.js</a>, <a href="specification.js.html#line89">line 89</a>
         </li>
       </ul>
     </dd>
@@ -948,7 +950,7 @@ const usernameSpec = spec.flow(
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="specification.js.html">specification.js</a>, <a href="specification.js.html#line60">line 60</a>
+          <a href="specification.js.html">specification.js</a>, <a href="specification.js.html#line62">line 62</a>
         </li>
       </ul>
     </dd>
@@ -1150,7 +1152,7 @@ or array with only one item that is a spec function</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="specification.js.html">specification.js</a>, <a href="specification.js.html#line192">line 192</a>
+          <a href="specification.js.html">specification.js</a>, <a href="specification.js.html#line194">line 194</a>
         </li>
       </ul>
     </dd>
