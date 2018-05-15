@@ -17,6 +17,10 @@
   "keywords": [
     "validation",
     "validate",
+    "valid",
+    "object",
+    "array",
+    "shape",
     "fp",
     "functional",
     "functional programming",
@@ -27,7 +31,6 @@
     "data validity",
     "safety",
     "integrity",
-    "valid",
     "check",
     "scrutiny",
     "examine"
