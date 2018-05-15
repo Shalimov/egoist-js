@@ -42,6 +42,7 @@
     "build": "gulp build"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
     "babel-env": "^2.4.1",
     "babel-eslint": "^8.2.3",
     "babel-register": "^6.26.0",
