@@ -37,9 +37,9 @@
   ],
   "scripts": {
     "gen:docs": "jsdoc -c ./jsdoc.config.js",
-    "precommit": "yarn gulp && yarn build && git add .",
+    "precommit": "yarn gulp && git add .",
     "test": "./node_modules/mocha/bin/mocha --opts ./mocha.opts ./specs/**/*.spec.js ./specs/*.spec.js",
-    "build": "gulp build"
+    "gulp:build": "gulp build"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
