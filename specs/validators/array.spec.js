@@ -1,5 +1,5 @@
-import fp from 'lodash/fp'
 import should from 'should'
+import fp from '../../lib/like.lodash'
 
 import { isArray, minLength, maxLength, inRange, length, every, some } from '../../lib/validators/array'
 import ERROR_KEYS from '../../lib/defaults/keys'

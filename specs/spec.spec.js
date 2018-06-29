@@ -19,7 +19,7 @@ describe('$pec Module Spec', () => {
 
   it('should wrap spec into default context via #designate to provide key for custom labeling', () => {
     const asUserSpec = spec.designate('user')
-    
+
     const userModelSpec = spec.compose(
       asUserSpec(spec.flow(required)),
       spec.of({
