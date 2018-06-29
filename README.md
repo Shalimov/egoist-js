@@ -1,4 +1,5 @@
-# Validation Specs
+# Validation 
+## Small size, no deps, best validation experience!
 Designed with functional programming in mind
 ***
 Docs in progress:
@@ -8,7 +9,7 @@ However you can look at [Egoist-JS](https://shalimov.github.io/egoist-js) pages
 
 - `yarn add egoist-js` or `npm i egoist-js`
 - to use version without deps `import * as ego from 'egoist-js`
-- to work with uncompiled version you can `import * as ego from 'egoist-js/lib'` (nb: it requires [lodash](https://github.com/lodash/lodash/wiki/FP-Guide))
+- to work with uncompiled version you can `import * as ego from 'egoist-js/lib'`
 
 ```javascript
 import { spec, validate, validateAll, validators } from 'egoist-js'
