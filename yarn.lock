@@ -3105,7 +3105,7 @@ jsbn@~0.1.0:
 
 "jsdoc-template@https://github.com/Shalimov/jsdoc-template.git":
   version "3.2.0"
-  resolved "https://github.com/Shalimov/jsdoc-template.git#beee00cc07f150e1b581da126f4c299d9ea5ff4f"
+  resolved "https://github.com/Shalimov/jsdoc-template.git#90ee551ff989831b7faa60651a11a058ba16221b"
 
 jsdoc@^3.5.5:
   version "3.5.5"

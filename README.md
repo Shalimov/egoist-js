@@ -2,8 +2,7 @@
 ## Small size, no deps, best validation experience!
 Designed with functional programming in mind
 ***
-Docs in progress:
-However you can look at [Egoist-JS](https://shalimov.github.io/egoist-js) pages
+Look at [Egoist-JS](https://shalimov.github.io/egoist-js) pages
 
 ## Getting Started
 

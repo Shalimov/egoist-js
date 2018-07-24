@@ -8,6 +8,9 @@ import {
 	isAlphanum,
 	isDigits,
 	isISODate,
+	minLength,
+	maxLength,
+	length,
 } from '../../lib/validators/string'
 import ERROR_KEYS from '../../lib/defaults/keys'
 
@@ -91,7 +94,7 @@ describe('Validators Module String Spec', () => {
 		isAlphanum('10.1010.10201').should.be.eql([ERROR_KEYS.STRING.ALPHANUM])
 	})
 
-	it('should return a tuple with key if value is non-alphanumeric, otherwise null', () => {
+	it('should return key if value is not ISO format, otherwise null', () => {
 		should(isISODate(new Date().toISOString())).be.Null()
 		should(isISODate(undefined)).be.Null()
 		should(isISODate(null)).be.Null()
@@ -101,5 +104,38 @@ describe('Validators Module String Spec', () => {
 		isISODate('0@mail0').should.be.eql([ERROR_KEYS.STRING.ISO_DATE])
 		isISODate('10-1010-10201').should.be.eql([ERROR_KEYS.STRING.ISO_DATE])
 		isISODate('10.1010.10201').should.be.eql([ERROR_KEYS.STRING.ISO_DATE])
+	})
+
+	it('should return a tuple with key if value is less than, otherwise null', () => {
+		const milength = minLength(5)
+		should(milength(undefined)).be.Null()
+		should(milength(null)).be.Null()
+		should(milength('Johnny')).be.Null()
+
+		milength('John').should.be.eql([ERROR_KEYS.STRING.MIN_LENGTH, 5])
+		milength('Tom').should.be.eql([ERROR_KEYS.STRING.MIN_LENGTH, 5])
+		milength('').should.be.eql([ERROR_KEYS.STRING.MIN_LENGTH, 5])
+	})
+
+	it('should return a tuple with key if value is greater than, otherwise null', () => {
+		const mxlength = maxLength(5)
+		should(mxlength(undefined)).be.Null()
+		should(mxlength(null)).be.Null()
+		should(mxlength('Johnn')).be.Null()
+
+		mxlength('Johnny').should.be.eql([ERROR_KEYS.STRING.MAX_LENGTH, 5])
+		mxlength('Tommmy').should.be.eql([ERROR_KEYS.STRING.MAX_LENGTH, 5])
+		mxlength('Broonnne').should.be.eql([ERROR_KEYS.STRING.MAX_LENGTH, 5])
+	})
+
+	it('should return a tuple with key if value has not exact length, otherwise null', () => {
+		const ln = length(5)
+		should(ln(undefined)).be.Null()
+		should(ln(null)).be.Null()
+		should(ln('Johnn')).be.Null()
+
+		ln('Johnny').should.be.eql([ERROR_KEYS.STRING.LENGTH, 5])
+		ln('Tomm').should.be.eql([ERROR_KEYS.STRING.LENGTH, 5])
+		ln('Broonnne').should.be.eql([ERROR_KEYS.STRING.LENGTH, 5])
 	})
 })
