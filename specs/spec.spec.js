@@ -19,19 +19,30 @@ describe('$pec Module Spec', () => {
 
   it('should wrap spec into default context via #designate to provide key for custom labeling', () => {
     const asUserSpec = spec.designate('user')
+    const asUserName = spec.designate('User Name')
 
     const userModelSpec = spec.compose(
       asUserSpec(spec.flow(required)),
       spec.of({
-        username: spec.flow(isNotEmpty, required),
+        username: asUserName(spec.flow(isNotEmpty, required)),
         friends: spec.of([spec.lazy(() => userModelSpec)]),
       })
     )
 
-    const result = userModelSpec(null, { untilFail: true })
+    let result = userModelSpec(null, { untilFail: true })
 
-    result.should.matchEach(it => {
-      it.context.key.should.be.eql('user')
+    result.should.matchEach((it) => {
+      it.context.alias.should.not.be.eql(it.context.key)
+      it.context.alias.should.be.eql('user')
+    })
+
+    result = userModelSpec({
+      username: undefined,
+    }, { untilFail: true })
+
+    result.should.matchEach((it) => {
+      it.context.alias.should.not.be.eql(it.context.key)
+      it.context.alias.should.be.eql('User Name')
     })
   })
 
@@ -150,11 +161,11 @@ describe('$pec Module Spec', () => {
         spec.flow(required),
       )
 
-      should(nonEmptyListSpec([null, undefined, ''])).matchEach(it => {
+      should(nonEmptyListSpec([null, undefined, ''])).matchEach((it) => {
         it.result.should.be.oneOf([[ERROR_KEYS.ANY.REQUIRED], [ERROR_KEYS.STRING.EMPTY]])
       })
 
-      should(nonEmptyListSpec(null)).matchEach(it => {
+      should(nonEmptyListSpec(null)).matchEach((it) => {
         it.result.should.be.oneOf([[ERROR_KEYS.ANY.REQUIRED]])
       })
     })
@@ -169,13 +180,13 @@ describe('$pec Module Spec', () => {
         }),
         spec.flow(required)
       )
-  
+
       const result = userModelSpec({
         username: 'John',
         friends: [{ username: 'Hank' }, { username: null }],
       })
-  
-      result.should.matchEach(it => {
+
+      result.should.matchEach((it) => {
         it.result.should.be.eql([ERROR_KEYS.ANY.REQUIRED])
       })
     })

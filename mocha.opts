@@ -1,4 +1,4 @@
---require babel-register
+--require @babel/register
 --require should
 --reporter spec
 --timeout 999999
