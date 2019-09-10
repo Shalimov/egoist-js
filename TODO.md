@@ -1,0 +1,3 @@
+- Array ordered?, unique?
+- Add Date validation
+- spec.ref + spec.union
